@@ -144,12 +144,12 @@ INSERT INTO medico
 
 INSERT INTO ponto
         (fk_usuario,hora_entrada,hora_saida,data_,horas_trabalhadas) VALUES
-        (1,09:00:00, 11:00:00,2015-07-30,NULL),
-        (2,09:00:00, 17:00:00,2015-07-30,NULL),
-		(3,09:00:00, 16:00:00,2015-07-30,NULL),
-		(1,09:00:00, 11:00:00,2015-07-31,NULL),
-        (2,09:00:00, 17:00:00,2015-07-31,NULL),
-		(3,09:00:00, 16:00:00,2015-07-31,NULL)
+        (1,'09:00:00', '11:00:00','2015-07-30',NULL),
+        (2,'09:00:00', '17:00:00','2015-07-30',NULL),
+		(3,'09:00:00', '16:00:00','2015-07-30',NULL),
+		(1,'09:00:00', '11:00:00','2015-07-31',NULL),
+        (2,'09:00:00', '17:00:00','2015-07-31',NULL),
+		(3,'09:00:00', '16:00:00','2015-07-31',NULL)
         ;
 
 INSERT INTO paciente
@@ -169,7 +169,8 @@ INSERT INTO status_quarto
         ("Vazio"),
         ("Ocupado"),
 		("Parcialmente vazio")
-        ;--possibilidade de tirar este parcialmente vazio... por soh com vaga os sem vaga.
+        ;
+/*possibilidade de tirar este parcialmente vazio... por soh com vaga os sem vaga.*/
 		
 INSERT INTO quarto
         (fk_tipo_quarto, fk_status_quarto,quarto) VALUES
@@ -182,12 +183,12 @@ INSERT INTO status_saude
         (status_saude) VALUES
         ("Alta"),
         ("Urgencia"),
-		("Emergencia")
+		("Emergencia"),
+        ("Observacao")
         ;
 		
 INSERT INTO prontuario
-        (fk_quarto,fk_medico, fk_paciente) VALUES
-        (1,1,1),
-        (2,1,2)
+        (fk_quarto,fk_medico, fk_paciente,fk_status_saude) VALUES
+        (1,1,1,4),
+        (2,1,2,3)
         ;
-		

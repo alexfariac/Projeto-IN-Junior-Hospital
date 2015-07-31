@@ -8,14 +8,14 @@ buscar ponto por medico, codigo, data (dia, mes e ano), hora_entrada, hora_saida
 
 
 */
-SELECT * FROM  status_usuario ;
-SELECT * FROM  tipo_usuario ;
-SELECT * FROM  usuario ;
+SELECT * FROM  status_usuario;
+SELECT * FROM  tipo_usuario;
+SELECT * FROM  usuario;
 SELECT * FROM  medico;
-SELECT * FROM  ponto ;
-SELECT * FROM  paciente ;
-SELECT * FROM  status_quarto ;
-SELECT * FROM  tipo_quarto ;
-SELECT * FROM  quarto ;
-SELECT * FROM  status_saude ;
-SELECT * FROM  prontuario ;
+SELECT * FROM  ponto;
+SELECT * FROM  paciente;
+SELECT * FROM  status_quarto;
+SELECT * FROM  tipo_quarto;
+SELECT * FROM  quarto;
+SELECT * FROM  status_saude;
+SELECT * FROM  prontuario;

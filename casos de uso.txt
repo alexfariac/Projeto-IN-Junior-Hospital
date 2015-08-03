@@ -1,0 +1,41 @@
+﻿Recepcionista:	
+R1	adicionar pacientes
+R2	alterar pacientes
+R3	buscar pacientes
+R4	buscar medico
+R5	buscar prontuario
+R6	adicionar ponto
+R7	buscar ponto (relacionados a ele)
+R8	buscar quarto
+R9	alterar status do quarto
+
+	
+Skip Recepcionista:
+R1a	Paciente já cadastrado.
+	1	O sistema informa que o usuário já existe.
+	2	Sistema vai para o passo 2 do fluxo principal.
+R2a	Paciente não existe.
+	1	O sistema informa que não existe o paciente.
+	2	Sistema vai para o passo 1 do fluxo principal.
+Em qualquer caso de busca: Informação não existe.
+	1	O sistema informa que não existe o paciente.
+	2	Sistema vai para o passo 1 do fluxo principal.
+
+Medico:	
+M1	buscar pacientes (relacionados a ele)
+M2	buscar prontuários (relacionados a ele)
+M3	adicionar ponto
+M4	buscar ponto (relacionados a ele)
+M5	alterar prontuario_status_saude (relacionados a ele)
+
+Skip Medico:
+Em qualquer caso de busca: Informação não existe.
+	1	O sistema informa que não existe o paciente.
+	2	Sistema vai para o passo 1 do fluxo principal.
+
+	
+Admin:	
+A1	Todos os outros e mais...
+A2	adicionar qualquer tabela[usuario, tipo_usuario, status_usuario,quarto, tipo_quarto,..]
+A3	buscar qualquer tabela
+A4	deletar qualquer registro

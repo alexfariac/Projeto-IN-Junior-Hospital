@@ -1,4 +1,4 @@
-CREATE TABLE tipo_funcionario (
+﻿CREATE TABLE tipo_funcionario (
   id_tipo_funcionario INTEGER UNSIGNED  AUTO_INCREMENT,
   tipo_funcionario VARCHAR(64) NOT NULL UNIQUE KEY,
   PRIMARY KEY(id_tipo_funcionario)
@@ -28,6 +28,7 @@ CREATE TABLE funcionario (
   nome VARCHAR(64) NOT NULL,
   cpf CHAR(11) NOT NULL UNIQUE KEY,
   endereço VARCHAR(128) NOT NULL,
+  email VARCHAR(64) NOT NULL,
   PRIMARY KEY(fk_usuario),
   CONSTRAINT fk_usuario_funcionario
 	  FOREIGN KEY(fk_usuario)
@@ -120,7 +121,7 @@ INSERT INTO tipo_funcionario
         (tipo_funcionario) VALUES
         ("Admin"),
         ("funcionario"),
-		("Recepcionista")
+	("Recepcionista")
         ;
 		
 INSERT INTO status_usuario
@@ -147,10 +148,10 @@ INSERT INTO ponto
         (fk_usuario,data_hora_entrada,data_hora_saida,horas_trabalhadas) VALUES
         (1,'2015-07-30 09:00:00', '2015-07-30 11:00:00',NULL),
         (2,'2015-07-30 09:00:00', '2015-07-30 17:00:00',NULL),
-		(3,'2015-07-30 09:00:00', '2015-07-30 16:00:00',NULL),
-		(1,'2015-07-30 09:00:00', '2015-07-30 11:00:00',NULL),
+	(3,'2015-07-30 09:00:00', '2015-07-30 16:00:00',NULL),
+	(1,'2015-07-30 09:00:00', '2015-07-30 11:00:00',NULL),
         (2,'2015-07-30 09:00:00', '2015-07-30 17:00:00',NULL),
-		(3,'2015-07-30 09:00:00', '2015-07-30 16:00:00',NULL)
+	(3,'2015-07-30 09:00:00', '2015-07-30 16:00:00',NULL)
         ;
 
 INSERT INTO paciente
@@ -175,14 +176,14 @@ INSERT INTO quarto
         (fk_tipo_quarto, fk_status_quarto,quarto) VALUES
         (2,3,1),
         (1,2,2),
-		(1,1,3)
+	(1,1,3)
         ;
 
 INSERT INTO status_saude
         (status_saude) VALUES
         ("Alta"),
         ("Urgencia"),
-		("Emergencia"),
+	("Emergencia"),
         ("Observacao")
         ;
 		

@@ -1,18 +1,18 @@
 CREATE TABLE tipo_funcionario (
   id_tipo_funcionario INTEGER UNSIGNED  AUTO_INCREMENT,
-  tipo_funcionario VARCHAR(64) NOT NULL,
+  tipo_funcionario VARCHAR(64) NOT NULL UNIQUE KEY,
   PRIMARY KEY(id_tipo_funcionario)
 );
 
 CREATE TABLE status_usuario (
   id_status_usuario INTEGER UNSIGNED  AUTO_INCREMENT,
-  status_usuario VARCHAR(64) NOT NULL,
+  status_usuario VARCHAR(64) NOT NULL UNIQUE KEY,
   PRIMARY KEY(id_status_usuario)
 );
 
 CREATE TABLE usuario (
   id_usuario INTEGER UNSIGNED  AUTO_INCREMENT,
-  login VARCHAR(64) NOT NULL,
+  login VARCHAR(64) NOT NULL UNIQUE KEY,
   senha VARCHAR(64) NOT NULL,
   fk_status_usuario INTEGER UNSIGNED NOT NULL,
   PRIMARY KEY(id_usuario),
@@ -26,7 +26,7 @@ CREATE TABLE funcionario (
   fk_usuario INTEGER UNSIGNED NOT NULL,
   fk_tipo_funcionario INTEGER UNSIGNED NOT NULL,
   nome VARCHAR(64) NOT NULL,
-  cpf CHAR(11) NOT NULL,
+  cpf CHAR(11) NOT NULL UNIQUE KEY,
   endereço VARCHAR(128) NOT NULL,
   PRIMARY KEY(fk_usuario),
   CONSTRAINT fk_usuario_funcionario
@@ -55,19 +55,19 @@ CREATE TABLE ponto (
 CREATE TABLE paciente (
   id_paciente INTEGER UNSIGNED  AUTO_INCREMENT,
   nome VARCHAR(64) NOT NULL,
-  cpf CHAR(11) NOT NULL,
+  cpf CHAR(11) NOT NULL UNIQUE KEY,
   PRIMARY KEY(id_paciente)
 );
 
 CREATE TABLE tipo_quarto (
   id_tipo_quarto INTEGER UNSIGNED  AUTO_INCREMENT,
-  tipo_quarto VARCHAR(64) NOT NULL,
+  tipo_quarto VARCHAR(64) NOT NULL UNIQUE KEY,
   PRIMARY KEY(id_tipo_quarto)
 );
 
 CREATE TABLE status_quarto (
   id_status_quarto INTEGER UNSIGNED  AUTO_INCREMENT,
-  status_quarto VARCHAR(64) NOT NULL,
+  status_quarto VARCHAR(64) NOT NULL UNIQUE KEY,
   PRIMARY KEY(id_status_quarto)
 );
 
@@ -75,7 +75,7 @@ CREATE TABLE quarto (
   id_quarto INTEGER UNSIGNED  AUTO_INCREMENT,
   fk_tipo_quarto INTEGER UNSIGNED NOT NULL,
   fk_status_quarto INTEGER UNSIGNED NOT NULL,
-  quarto INTEGER UNSIGNED NOT NULL,
+  quarto INTEGER UNSIGNED NOT NULL UNIQUE KEY,
   PRIMARY KEY(id_quarto),
   CONSTRAINT fk_tipo_quarto
 	  FOREIGN KEY(fk_tipo_quarto)
@@ -87,14 +87,14 @@ CREATE TABLE quarto (
 
 CREATE TABLE status_saude (
   id_status_saude INTEGER UNSIGNED  AUTO_INCREMENT,
-  status_saude VARCHAR(64) NOT NULL,
+  status_saude VARCHAR(64) NOT NULL UNIQUE KEY,
   PRIMARY KEY(id_status_saude)
 );
 
 CREATE TABLE prontuario (
   id_prontuario INTEGER UNSIGNED  AUTO_INCREMENT,
   fk_quarto INTEGER UNSIGNED NOT NULL,
-  fk_funcionario INTEGER UNSIGNED NOT NULL,
+  fk_usuario INTEGER UNSIGNED NOT NULL,
   fk_paciente INTEGER UNSIGNED NOT NULL,
   fk_status_saude INTEGER UNSIGNED NOT NULL,
   PRIMARY KEY(id_prontuario),
@@ -102,9 +102,9 @@ CREATE TABLE prontuario (
 	  FOREIGN KEY(fk_quarto)
 		REFERENCES quarto(id_quarto)
 		ON UPDATE CASCADE,
-  CONSTRAINT fk_funcionario
-	  FOREIGN KEY(fk_funcionario)
-		REFERENCES funcionario(id_funcionario)
+  CONSTRAINT fk_usuario_prontuario
+	  FOREIGN KEY(fk_usuario)
+		REFERENCES usuario(fk_usuario)
 		ON UPDATE CASCADE,
   CONSTRAINT fk_paciente
 	  FOREIGN KEY(fk_paciente)
@@ -170,7 +170,6 @@ INSERT INTO status_quarto
         ("Com vaga"),
         ("Sem vaga")
         ;
-/*possibilidade de tirar este parcialmente vazio... por soh com vaga os sem vaga.*/
 		
 INSERT INTO quarto
         (fk_tipo_quarto, fk_status_quarto,quarto) VALUES
@@ -188,7 +187,7 @@ INSERT INTO status_saude
         ;
 		
 INSERT INTO prontuario
-        (fk_quarto,fk_funcionario, fk_paciente,fk_status_saude) VALUES
+        (fk_quarto,fk_usuario, fk_paciente,fk_status_saude) VALUES
         (1,1,1,4),
         (2,1,2,3)
         ;

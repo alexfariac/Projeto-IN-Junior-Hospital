@@ -1,33 +1,18 @@
-<<<<<<< HEAD
 CREATE TABLE tipo_funcionario (
   id_tipo_funcionario INTEGER UNSIGNED  AUTO_INCREMENT,
   tipo_funcionario VARCHAR(64) NOT NULL UNIQUE KEY,
   PRIMARY KEY(id_tipo_funcionario)
-=======
-CREATE TABLE tipo_usuario (
-  id_tipo_usuario INTEGER UNSIGNED  AUTO_INCREMENT,
-  tipo_usuario VARCHAR(64) NOT NULL,
-  PRIMARY KEY(id_tipo_usuario)
->>>>>>> 842980357be8b44b95cb1784dff44842799262ad
 );
 
 CREATE TABLE status_usuario (
   id_status_usuario INTEGER UNSIGNED  AUTO_INCREMENT,
-<<<<<<< HEAD
   status_usuario VARCHAR(64) NOT NULL UNIQUE KEY,
-=======
-  status_usuario VARCHAR(64) NOT NULL,
->>>>>>> 842980357be8b44b95cb1784dff44842799262ad
   PRIMARY KEY(id_status_usuario)
 );
 
 CREATE TABLE usuario (
   id_usuario INTEGER UNSIGNED  AUTO_INCREMENT,
-<<<<<<< HEAD
   login VARCHAR(64) NOT NULL UNIQUE KEY,
-=======
-  login VARCHAR(64) NOT NULL,
->>>>>>> 842980357be8b44b95cb1784dff44842799262ad
   senha VARCHAR(64) NOT NULL,
   fk_status_usuario INTEGER UNSIGNED NOT NULL,
   PRIMARY KEY(id_usuario),
@@ -38,24 +23,13 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE funcionario (
-<<<<<<< HEAD
-=======
-  fk_tipo_funcionario INTEGER UNSIGNED NOT NULL,
->>>>>>> 842980357be8b44b95cb1784dff44842799262ad
   fk_usuario INTEGER UNSIGNED NOT NULL,
   fk_tipo_funcionario INTEGER UNSIGNED NOT NULL,
   nome VARCHAR(64) NOT NULL,
-<<<<<<< HEAD
   cpf CHAR(11) NOT NULL UNIQUE KEY,
-  endereço VARCHAR(128) NOT NULL,
+  endereÃ§o VARCHAR(128) NOT NULL,
   PRIMARY KEY(fk_usuario),
   CONSTRAINT fk_usuario_funcionario
-=======
-  cpf CHAR(11) NOT NULL,
-  endereço VARCHAR(128) NOT NULL,
-  PRIMARY KEY(fk_usuario),
-  CONSTRAINT fk_usuario_medico
->>>>>>> 842980357be8b44b95cb1784dff44842799262ad
 	  FOREIGN KEY(fk_usuario)
 		REFERENCES usuario(id_usuario)
 		ON UPDATE CASCADE,
@@ -63,22 +37,13 @@ CREATE TABLE funcionario (
 	  FOREIGN KEY(fk_tipo_funcionario)
 		REFERENCES tipo_funcionario(id_tipo_funcionario)
 		ON UPDATE CASCADE
-  CONSTRAINT fk_tipo_funcionario
-	  FOREIGN KEY(fk_tipo_usuario)
-		REFERENCES tipo_usuario(id_tipo_usuario)
-		ON UPDATE CASCADE,
 );
 
 CREATE TABLE ponto (
   id_ponto INTEGER UNSIGNED  AUTO_INCREMENT,
   fk_usuario INTEGER UNSIGNED NOT NULL,
-<<<<<<< HEAD
   data_hora_entrada DATETIME NOT NULL,
   data_hora_saida DATETIME ,
-=======
-  dh_entrada DATETIME NOT NULL,
-  dh_saida DATETIME ,
->>>>>>> 842980357be8b44b95cb1784dff44842799262ad
   horas_trabalhadas INTEGER UNSIGNED,
   PRIMARY KEY(id_ponto),
   CONSTRAINT fk_usuario_ponto
@@ -96,21 +61,13 @@ CREATE TABLE paciente (
 
 CREATE TABLE tipo_quarto (
   id_tipo_quarto INTEGER UNSIGNED  AUTO_INCREMENT,
-<<<<<<< HEAD
   tipo_quarto VARCHAR(64) NOT NULL UNIQUE KEY,
-=======
-  tipo_quarto VARCHAR(64) NOT NULL,
->>>>>>> 842980357be8b44b95cb1784dff44842799262ad
   PRIMARY KEY(id_tipo_quarto)
 );
 
 CREATE TABLE status_quarto (
   id_status_quarto INTEGER UNSIGNED  AUTO_INCREMENT,
-<<<<<<< HEAD
   status_quarto VARCHAR(64) NOT NULL UNIQUE KEY,
-=======
-  status_quarto VARCHAR(64) NOT NULL,
->>>>>>> 842980357be8b44b95cb1784dff44842799262ad
   PRIMARY KEY(id_status_quarto)
 );
 
@@ -130,11 +87,7 @@ CREATE TABLE quarto (
 
 CREATE TABLE status_saude (
   id_status_saude INTEGER UNSIGNED  AUTO_INCREMENT,
-<<<<<<< HEAD
   status_saude VARCHAR(64) NOT NULL UNIQUE KEY,
-=======
-  status_saude VARCHAR(64) NOT NULL,
->>>>>>> 842980357be8b44b95cb1784dff44842799262ad
   PRIMARY KEY(id_status_saude)
 );
 

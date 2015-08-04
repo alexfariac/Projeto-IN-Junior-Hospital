@@ -1,4 +1,8 @@
-﻿#fheader{
+﻿p {
+	color:white;
+}
+
+#fheader{
 	text-align:right;
 	margin-bottom:0;
 	padding-right:10px;
@@ -6,6 +10,8 @@
 }
 
 .navbar.navbar-default{
+	background-color:#1fbbd2;
+	border:0;
 	margin-top:50px;
 	margin-bottom:0;
 	height:593px;
@@ -74,3 +80,8 @@
     margin-right: 0;
 }
 }
+/* Modificar cores da barra lateral */
+.navbar-default .navbar-nav .open .dropdown-menu>li>a,.navbar-default .navbar-nav .open .dropdown-menu {
+	background-color:#1fbbd2;
+    color:#ffffff;
+  }

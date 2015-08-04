@@ -10,12 +10,9 @@
 	border-bottom-right-radius: 1em;
 	border-top-right-radius: 1em;
 	border-top-left-radius: 1em;
-	padding-bottom: 15px;
+	padding-bottom: 7px;
 	padding-top: 15px;
 	width: 260px;
-}
-.form-signin{
-	margin-left:
 }
 
 .id_campo{
@@ -25,4 +22,10 @@
 
 .form-control{
 	margin-bottom: 7px;
+}
+button{
+	margin-top: 7px;
+	border: 0;
+	padding: 0;
+	
 }

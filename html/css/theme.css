@@ -1,0 +1,76 @@
+﻿#fheader{
+	text-align:right;
+	margin-bottom:0;
+	padding-right:10px;
+	padding-top:10px;
+}
+
+.navbar.navbar-default{
+	margin-top:50px;
+	margin-bottom:0;
+	height:593px;
+	border-radius:0;
+}
+#copyrigth{
+	margin:0;
+	text-align:right;
+	padding-top:20px;
+	padding-right:10px;
+	font-family:verdana;
+}
+
+#rodape{
+	display:block;
+	position:absolute;
+	bottom:0;
+	background-color:gray;
+	width:100%;
+	height:50px;
+	
+}
+#header{
+	display:block;
+	position:absolute;
+	background-color:gray;
+	width:100%;
+	height:50px;
+	top:0;
+}
+@media (min-width: 768px) {
+  .navbar-collapse {
+    height: auto;
+    border-top: 0;
+    box-shadow: none;
+    max-height: none;
+    padding-left:0;
+    padding-right:0;
+  }
+  .navbar-collapse.collapse {
+    display: block !important;
+    width: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+  .navbar-collapse.in {
+    overflow-x: visible;
+  }
+
+.navbar
+{	
+	max-width:300px;
+	margin-right: 0;
+	margin-left: 0;
+}	
+
+.navbar-nav,
+.navbar-nav > li,
+.navbar-left,
+.navbar-right,
+.navbar-header
+{float:none !important;}
+
+.navbar-right .dropdown-menu {left:0;right:auto;}
+.navbar-collapse .navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+}
+}

@@ -8,6 +8,7 @@ var saude = document.getElementById("stpront");
 var botao = document.getElementById("botao");
 
 botao.addEventListener('click',function(e){
+	e.preventDefault();
 	if(quarto.value == '' ||
 		medico.value == '' ||
 		paciente.value == '' ||
@@ -17,5 +18,7 @@ botao.addEventListener('click',function(e){
 		}else if(isNaN(Number(quarto.value))){
 			alert("Digite um válido para quarto");
 			return false;
+		}else{
+			document.getElementsByTagName("form")[0].submit();
 		}
 });

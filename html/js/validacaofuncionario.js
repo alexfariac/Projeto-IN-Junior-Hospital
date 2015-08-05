@@ -10,6 +10,7 @@ var senha = document.getElementById("inputPassword");
 var botao  = document.getElementById("botao");
 
 botao.addEventListener('click',function(e){
+	e.preventDefault();
 		if(nome.value == '' ||
 			cpf.value == '' ||
 			endereco.value == '' ||
@@ -18,9 +19,11 @@ botao.addEventListener('click',function(e){
 				alert("Por favor preencha todos os campos para proseguir");
 				return false;
 		}else{
-			if(cpf.value.length != 11){
+			if(cpf.value.length != 11 || isNaN(Number(cpf.value))){
 				alert("Insira um CPF válido");
 				return false;
+			}else{
+				document.getElementsByTagName("form")[0].submit();	
 			}
 		}
 });

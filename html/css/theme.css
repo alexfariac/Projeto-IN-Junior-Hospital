@@ -1,4 +1,8 @@
-﻿font{
+﻿body{
+	height:543px;
+}
+
+font{
 	color: black;
 	font-size:18;
 }
@@ -34,7 +38,7 @@ input{
 	-webkit-border-radius: 7px;
 }
 #logo{
-	width:90px;
+	width:100px;
 	height:50px;
 }
 button{

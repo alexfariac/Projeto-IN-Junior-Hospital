@@ -43,7 +43,7 @@ button{
 	margin-right: 20px;
 }
 #entrar{
-	width:70px;
+	width:80px;
 }
 #fheader{
 	float:right;
@@ -55,6 +55,7 @@ button{
 	margin-top:50px;
 	margin-bottom:0;
 	height:100%;
+	width: 200px;
 	border-radius:0;
 }
 #copyrigth{

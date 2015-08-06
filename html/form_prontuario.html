@@ -32,9 +32,13 @@
 							<label class="sr-only" id="campo_senha">Status</label>
 							<input class="form-control" id="stpront" placeholder="Status" required="">
 							
+							<div class="row" id="formQ_style">
+							<div class= "col-lg-6 col-md-6 col-sm-12 no-padding" style="text-aling: center;">
 							<button  type="button" class="log">
-								<img  id="botao" src="img/botaoCadastro.png">
+								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
+							</div>
+						</div>
 						</form>
 					</div>
 				</div>
@@ -46,5 +50,20 @@
 	
 	<!--Validacao JS -->
 	<script src="js/validacaoprontuario.js"></script>
+	
+	<!-- Auto complete -->
+	<script>
+		$(function(){
+			var nome_paciente = []; // Adicionar lista de php
+			$('#pacpront').autocomplete({
+				source : nome_paciente;
+			})
+			var nome_medico = []; // Adicionar lista de php
+			$('#medpront').autocomplete({
+				source : nome_medico;
+			})
+		})
+	</script>
+	
 	</body>
 </html>

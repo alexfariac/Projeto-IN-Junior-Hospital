@@ -26,6 +26,11 @@
 #botao{
 	margin: -10px;
 	}
+
+#formQ_style{
+	text-align: center;
+	margin-top: 20px
+}
 button{
 	border: 0;
 	padding: 0;

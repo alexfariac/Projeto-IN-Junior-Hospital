@@ -10,7 +10,7 @@
         <input type='text' placeholder='Usuário' name='login'>
         <input type='password' placeholder='Senha' name='senha'>
         <button  type='submit' class='log'>
-            <img id='entrar' src='img/botaoEntrar.png'>
+            <img id='entrar' src='img/botaoLogar.png'>
         </button>
     </form>
 </div>

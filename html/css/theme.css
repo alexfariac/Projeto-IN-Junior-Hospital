@@ -53,7 +53,10 @@ button{
 #fheader{
 	float:right;
 }
-
+#pheader{
+	float:right;
+	margin-top:10px;
+}
 .navbar.navbar-default{
 	background-color:#1fbbd2;
 	border:0;
@@ -142,9 +145,14 @@ button{
 }
 
 .formula{
-	margin-left:400px;
 	border:0;
-	width:1000px;
+	width:300px;
 	height:540px;
+	position:fixed;
+	top: 50;
+    left: 530;
+}
+#logado{
+	width:80;
 }
 

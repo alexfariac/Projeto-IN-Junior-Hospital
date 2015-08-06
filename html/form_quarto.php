@@ -20,6 +20,7 @@
 							<label class="sr-only" id="campo_senha">Número</label>
 							<input class="form-control" id="nqt" placeholder="Número do Quarto" required="">
 							
+							<span class="id_campo">Tipo:</span>
 							<select id="listbox">
 								<option value="Individual">Individual</option>
 								<option value="Coletivo">Coletivo</option>

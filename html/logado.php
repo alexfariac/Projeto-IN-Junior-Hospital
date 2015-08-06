@@ -15,14 +15,15 @@
     <?php
     echo $_SESSION['nome'];
     ?>
-    <form id='fheader' method='POST' action='b_control.php?op=ponto' enctype='multipart/form-data'>
+
+    <form id='pheader' method='POST' action='b_control.php?op=desloga' enctype='multipart/form-data'>
         <button  type='submit' class='log'>
-            <img id='entrar' src='img/botaoEntrar.png'>
+            <img id='logado' src='img/botaoSair.png'>
         </button>
     </form>
-    <form id='fheader' method='POST' action='b_control.php?op=desloga' enctype='multipart/form-data'>
+	    <form id='pheader' method='POST' action='b_control.php?op=ponto' enctype='multipart/form-data'>
         <button  type='submit' class='log'>
-            <img id='entrar' src='img/botaoEntrar.png'>
+            <img id='logado' src='img/botaoIniciarPonto.png'>
         </button>
     </form>
 </div>

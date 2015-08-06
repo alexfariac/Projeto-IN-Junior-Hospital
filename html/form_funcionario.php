@@ -30,8 +30,11 @@
 							<input class="form-control" id="endfun" placeholder="Endereço" required="">
 							
 							<span class="id_campo">Cargo:</span>
-							<label class="sr-only" id="campo_senha">Cargo</label>
-							<input class="form-control" id="carfun" placeholder="Cargo" required="">
+							<select id="listbox">
+								<option value="Recepcionista">Recepcionista</option>
+								<option value="Médico">Médico</option>
+								<option value="Administrador">Administrador</option>
+							</select>
 							
 							<span class="id_campo">Login:</span>
 							<label class="sr-only" id="campo_senha">Login</label>

@@ -133,15 +133,15 @@ INSERT INTO status_usuario
 INSERT INTO usuario
         (login, senha, fk_status_usuario) VALUES
         ("Admin","Admin",1),
-        ("funcionario","funcionario",1),
+        ("Medico","Medico",1),
 		("Recepcionista","Recepcionista",1)
         ;
 
 INSERT INTO funcionario
-        (fk_usuario, nome, cpf, fk_tipo_funcionario) VALUES
-		(1,"Sr Admin",'11111111111',1),
-        (2,"Dr funcionario",'44444444444',2),
-		(3,"Sra Recepcionista",'55555555555',3)
+        (fk_usuario, nome, cpf, fk_tipo_funcionario,email) VALUES
+		(1,"Sr Admin",'11111111111',1,"emailAdmin"),
+        (2,"Dr funcionario",'44444444444',2,"emailFunc"),
+		(3,"Sra Recepcionista",'55555555555',3,"emailRec")
         ;
 
 INSERT INTO ponto

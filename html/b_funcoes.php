@@ -255,36 +255,49 @@
         $query = $conn->query($sql);
         $dados = $query->fetch_array();
     }
+    function tabela($parte){
+        if($parte == "abre"){
+            echo "<head><link rel='stylesheet' type='text/css' href='css/jquery.dataTables.min.css'></head>";
+            echo "<body><table id='tabela'>";
+            echo "<thead>";
+        }elseif($parte == "fecha"){
+            echo "</tbody></table>";
+            echo "<script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>";
+            echo "<script type='text/javascript' src='js/jquery.dataTables.min.js'></script>";
+            echo "<script type='text/javascript' src='js/dataTable.js'></script>";
+            echo "</body>";
+        }
+    }
     function select_paciente(){
         $conn = conecta_bd();
         $sql ="select * from paciente";
         $fields = ['nome','cpf','editar','excluir'];
         $query = $conn->query($sql);
         if($query->num_rows > 0){
-            echo $query->num_rows . "<br>";
-            echo "<table>";
+            tabela("abre");
             foreach ($fields as $field) {
                 echo("<th>" . $field ."</th>");
             }
+            echo "</thead><tbody>";
             while($data = $query->fetch_array()) {
                 $id_paciente =  $data['id_paciente'];
                 echo("<tr>");
                 foreach ($fields as $field) {
                     if($field == 'editar'){
-                        echo "<td>"
-                            . "<a href='control.php?op=editPac?id=$id_paciente' class='btn btn-primary'><span class='glyphicon glyphicon-pencil'></span> Editar </a>"
-                            . "</td>";
+                        echo "<th>"
+                            . "<a href='control.php?op=editPac&id=$id_paciente' class='btn btn-primary'><span class='glyphicon glyphicon-pencil'></span> Editar </a>"
+                            . "</th>";
                     }elseif($field == 'excluir'){
-                        echo "<td>"
-                            . "<a href='control.php?op=exclPac?id=$id_paciente' class='btn btn-primary'><span class='glyphicon glyphicon-trash'></span> Excluir </a>"
-                            . "</td>";
+                        echo "<th>"
+                            . "<a href='control.php?op=exclPac&id=$id_paciente' class='btn btn-primary'><span class='glyphicon glyphicon-trash'></span> Excluir </a>"
+                            . "</th>";
                     }else {
-                        echo("<td>" . $data[$field] . "</td>");
+                        echo("<th>" . $data[$field] . "</th>");
                     }
                 }
                 echo("</tr>");
             }
-            echo "</table>";
+            tabela("fecha");
         }
     }
     function select_prontuario(){
@@ -301,7 +314,7 @@
             while($data = $query->fetch_array()) {
                 echo("<tr>");
                 foreach ($fields as $field) {
-                    echo("<td>" . $data[$field] . "</td>");
+                    echo("<th>" . $data[$field] . "</th>");
                 }
                 echo("</tr>");
             }
@@ -322,7 +335,7 @@
             while($data = $query->fetch_array()) {
                 echo("<tr>");
                 foreach ($fields as $field) {
-                    echo("<td>" . $data[$field] ."</td>");
+                    echo("<th>" . $data[$field] ."</th>");
                 }
                 echo("</tr>");
             }
@@ -343,7 +356,7 @@
             while($data = $query->fetch_array()) {
                 echo("<tr>");
                 foreach ($fields as $field) {
-                    echo("<td>" . $data[$field] ."</td>");
+                    echo("<th>" . $data[$field] ."</th>");
                 }
                 echo("</tr>");
             }
@@ -365,7 +378,7 @@
         while($data = $query->fetch_array()) {
             echo("<tr>");
             foreach ($fields as $field) {
-                echo("<td>" . $data[$field] ."</td>");
+                echo("<th>" . $data[$field] ."</th>");
             }
             echo("</tr>");
         }
@@ -386,7 +399,7 @@
             while($data = $query->fetch_array()) {
                 echo("<tr>");
                 foreach ($fields as $field) {
-                    echo("<td>" . $data[$field] ."</td>");
+                    echo("<th>" . $data[$field] ."</th>");
                 }
                 echo("</tr>");
             }

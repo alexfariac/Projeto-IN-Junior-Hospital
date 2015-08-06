@@ -1,7 +1,8 @@
-<?php session_start();
-    if(!isset($_SESSION['user'])){
-        desloga();
-    }
+<?php
+    //session_start();
+    //if(!isset($_SESSION['user'])){
+    //    desloga();
+    //}
 ?>
 <html>
 <head>
@@ -10,10 +11,10 @@
 </head>
 <body>
 <div id='header'>
-    <?php
-        $_SESSION['nome'];
-    ?>
     <img id='logo' src='img/logo.jpg'>
+    <?php
+    echo $_SESSION['nome'];
+    ?>
     <form id='fheader' method='POST' action='b_control.php?op=ponto' enctype='multipart/form-data'>
         <button  type='submit' class='log'>
             <img id='entrar' src='img/botaoEntrar.png'>
@@ -42,8 +43,8 @@
         <li class='dropdown'>
             <a  class='dropdown-toggle' data-toggle='dropdown'><font>Funcionario</font><b class='caret'></b></a>
             <ul class='dropdown-menu'>
-                <li><a href='form_funcionario.php?op=criar'>Criar</a></li>
-                <li><a href='form_funcionario.php?op=ver'>Visualizar</a></li>
+                <li><a href='form_funcionario.php?op=criar' target="iframe">Criar</a></li>
+                <li><a href='form_funcionario.php?op=ver' target="iframe">Visualizar</a></li>
             </ul>
         </li>
     </ul><!--Funcionario-->
@@ -51,8 +52,8 @@
         <li class='dropdown'>
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Ponto</font><b class='caret'></b></a>
             <ul class='dropdown-menu'>
-                <li><a href='form_funcionario.php?op=criar'>Criar</a></li>
-                <li><a href='form_funcionario.php?op=ver'>Visualizar</a></li>
+                <li><a href='form_funcionario.php?op=criar' target="iframe">Criar</a></li>
+                <li><a href='form_funcionario.php?op=ver' target="iframe">Visualizar</a></li>
             </ul>
         </li>
     </ul><!--Ponto-->
@@ -60,8 +61,8 @@
         <li class='dropdown'>
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Paciente</font><b class='caret'></b></a>
             <ul class='dropdown-menu'>
-                <li><a href='form_paciente.php?op=criar'>Criar</a></li>
-                <li><a href='form_paciente.php?op=ver'>Visualizar</a></li>
+                <li><a href='form_paciente.php?op=criar' target="iframe">Criar</a></li>
+                <li><a href='form_paciente.php?op=ver' target="iframe">Visualizar</a></li>
             </ul>
         </li>
     </ul><!--Paciente-->
@@ -69,8 +70,8 @@
         <li class='dropdown'>
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Prontuario</font><b class='caret'></b></a>
             <ul class='dropdown-menu'>
-                <li><a href='form_prontuario.php?op=criar'>Criar</a></li>
-                <li><a href='form_prontuario.php?op=ver'>Visualizar</a></li>
+                <li><a href='form_prontuario.php?op=criar' target="iframe">Criar</a></li>
+                <li><a href='form_prontuario.php?op=ver' target="iframe">Visualizar</a></li>
             </ul>
         </li>
     </ul><!--Prontuario-->
@@ -78,8 +79,8 @@
         <li class='dropdown'>
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Quarto</font><b class='caret'></b></a>
             <ul class='dropdown-menu'>
-                <li><a href='form_quarto.php?op=criar'>Criar</a></li>
-                <li><a href='form_quarto.php?op=ver'>Visualizar</a></li>
+                <li><a href='form_quarto.php?op=criar' target="iframe">Criar</a></li>
+                <li><a href='form_quarto.php?op=ver' target="iframe">Visualizar</a></li>
             </ul>
         </li>
     </ul><!--Quarto-->
@@ -105,8 +106,8 @@
 </footer>
 
 
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-<script src='../js/bootstrap.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src='js/bootstrap.min.js'></script>
 <script src='js/validacao.js'></script>
 </body>
 </html>

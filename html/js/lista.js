@@ -16,7 +16,7 @@ function adicionarTarefa(e){
 }
 
 function criarTarefa(tarefa){
-	var estrutura = "<p><span>"+tarefa+"</span>"+
+	var estrutura = "<p class=\"p\"><span class=\"tarefa\">"+tarefa+"</span>"+
 					"<button class =\"editar\">Editar Ponto</button><button class = \"excluir\">Fechar Ponto</button></p>";
 	
 	return estrutura;

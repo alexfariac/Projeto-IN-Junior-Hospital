@@ -251,9 +251,16 @@
     //Read...
     function autocomplete($tabela){
         $conn = conecta_bd();
-        $sql ="select * from $tabela";
+        $sql ="SELECT nome FROM $tabela";
+        if($tabela == 'funcionario'){
+            $sql .=" WHERE fk_tipo_funcionario = 2";
+        }
         $query = $conn->query($sql);
-        $dados = $query->fetch_array();
+        $nomes = array();
+        while($dados = $query->fetch_array()){
+            $nomes[] = $dados['nome'];
+        }
+        return $nomes;
     }
     function tabela($parte){
         if($parte == "abre"){

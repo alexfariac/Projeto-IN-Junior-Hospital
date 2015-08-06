@@ -18,5 +18,6 @@
     //select_quarto();
     //select_funcionario();
     //select_ponto();
-    select_paciente();
+    //select_paciente();
+    print_r(autocomplete('paciente'));
     ?>

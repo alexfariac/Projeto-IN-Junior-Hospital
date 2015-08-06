@@ -29,7 +29,7 @@ p {
 
 input{
 	padding-left:10px;
-	margin-right:10px;
+	margin-right:20px;
 	margin-top:7px;
 	height:35px;
 	border-radius: 7px;
@@ -141,10 +141,10 @@ button{
 	color:black !important;
 }
 
-#conteudo{
-	top: 50px;
-	bottom: 50px;
-	right: 0;
-	left: 200px;
-	margin: 0;
+.formula{
+	margin-left:400px;
+	border:0;
+	width:1000px;
+	height:540px;
 }
+

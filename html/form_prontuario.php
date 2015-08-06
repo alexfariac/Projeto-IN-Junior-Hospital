@@ -33,7 +33,7 @@
 							<input class="form-control" id="stpront" placeholder="Status" required="">
 							
 							<button  type="button" class="log">
-								<img  id="botao" src="img/botaoCadastro.png">
+								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
 						</form>
 					</div>

@@ -55,7 +55,7 @@ button{
 }
 #pheader{
 	float:right;
-	margin-top:10px;
+	margin-top:20px;
 }
 .navbar.navbar-default{
 	background-color:#1fbbd2;
@@ -154,5 +154,6 @@ button{
 }
 #logado{
 	width:80;
+	margin: -10px;
 }
 

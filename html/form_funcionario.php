@@ -46,7 +46,7 @@
 							
 							
 							<button  type="button" class="log">
-								<img id="botao" src="img/botaoCadastro.png">
+								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
 						</form>
 					</div>

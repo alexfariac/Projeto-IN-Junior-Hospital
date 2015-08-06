@@ -53,8 +53,8 @@
         <li class='dropdown'>
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Ponto</font><b class='caret'></b></a>
             <ul class='dropdown-menu'>
-                <li><a href='form_funcionario.php?op=criar' target="iframe">Criar</a></li>
-                <li><a href='form_funcionario.php?op=ver' target="iframe">Visualizar</a></li>
+                <li><a href='form_ponto.php?op=criar' target="iframe">Criar</a></li>
+                <li><a href='form_ponto.php?op=ver' target="iframe">Visualizar</a></li>
             </ul>
         </li>
     </ul><!--Ponto-->

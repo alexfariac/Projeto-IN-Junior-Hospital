@@ -22,7 +22,7 @@
 							<label class="sr-only" id="campo_senha">CPF</label>
 							<input id="inputPassword" class="form-control" placeholder="CPF" required="">
 							<button  type="button"	 class="log">
-								<img id="botao" src="img/botaoCadastro.png">
+								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
 						</form>
 					</div>	

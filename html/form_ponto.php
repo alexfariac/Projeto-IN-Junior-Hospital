@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,11 +16,19 @@
 					<div class="borda">
 						<form class="form-signin">
 							
-							<span class="id_campo">BOTA O NOME KAUE:</span>
-							<label class="sr-only" id="campo_senha">bota o nome lek</label>
-							<input class="form-control" placeholder="AQUI TAMBEM" required="">
+							<span class="id_campo">Nome:</span>
+							<label class="sr-only" id="campo_senha">Nome</label>
+							<input class="form-control" id="qtpront" placeholder="Nome" required="">
 							
-							<button  type="button"	 class="log">
+							<span class="id_campo">Data e Hora início:</span>
+							<label class="sr-only" id="campo_senha">Data e Hora início:</label>
+							<input class="form-control" id="medpront" placeholder="Data e Hora" required="">
+							
+							<span class="id_campo">Data e Hora fim:</span>
+							<label class="sr-only" id="campo_senha">Data e Hora fim:</label>
+							<input class="form-control" id="pacpront" placeholder="Data e Hora" required="">
+							
+							<button  type="button" class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
 						</form>
@@ -30,6 +38,9 @@
 		</div>
 	</div>	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	
+	<!--Validacao JS -->
+	<script src="js/validacaoprontuario.js"></script>
 	</body>
 </html>

@@ -1,7 +1,8 @@
 <html>
 <head>
-    <link href='css/bootstrap.min.css' rel='stylesheet'>
-    <link rel='stylesheet' type='text/css' href='css/theme.css'>
+    <meta charset="UTF-8">
+	<link href='css/bootstrap.min.css' rel='stylesheet'>
+	<link rel='stylesheet' type='text/css' href='css/theme.css'>
 </head>
 <body>
 <div id='header'>

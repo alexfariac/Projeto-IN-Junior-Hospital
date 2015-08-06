@@ -14,7 +14,7 @@ CREATE TABLE usuario (
   id_usuario INTEGER UNSIGNED  AUTO_INCREMENT,
   login VARCHAR(64) NOT NULL UNIQUE KEY,
   senha VARCHAR(64) NOT NULL,
-  fk_status_usuario INTEGER UNSIGNED NOT NULL,
+  fk_status_usuario INTEGER UNSIGNED NOT NULL DEFAULT 1,
   PRIMARY KEY(id_usuario),
   CONSTRAINT fk_status_usuario
 	  FOREIGN KEY(fk_status_usuario)
@@ -28,7 +28,7 @@ CREATE TABLE funcionario (
   nome VARCHAR(64) NOT NULL,
   cpf CHAR(11) NOT NULL UNIQUE KEY,
   endereço VARCHAR(128) NOT NULL,
-  email VARCHAR(64) NOT NULL,
+  email VARCHAR(64) NOT NULL UNIQUE KEY,
   PRIMARY KEY(fk_usuario),
   CONSTRAINT fk_usuario_funcionario
 	  FOREIGN KEY(fk_usuario)
@@ -43,7 +43,7 @@ CREATE TABLE funcionario (
 CREATE TABLE ponto (
   id_ponto INTEGER UNSIGNED  AUTO_INCREMENT,
   fk_usuario INTEGER UNSIGNED NOT NULL,
-  data_hora_entrada DATETIME NOT NULL,
+  data_hora_entrada DATETIME NOT NULL DEFAULT NOW(),
   data_hora_saida DATETIME ,
   horas_trabalhadas INTEGER UNSIGNED,
   PRIMARY KEY(id_ponto),
@@ -75,7 +75,7 @@ CREATE TABLE status_quarto (
 CREATE TABLE quarto (
   id_quarto INTEGER UNSIGNED  AUTO_INCREMENT,
   fk_tipo_quarto INTEGER UNSIGNED NOT NULL,
-  fk_status_quarto INTEGER UNSIGNED NOT NULL,
+  fk_status_quarto INTEGER UNSIGNED NOT NULL DEFAULT 1,
   quarto INTEGER UNSIGNED NOT NULL UNIQUE KEY,
   PRIMARY KEY(id_quarto),
   CONSTRAINT fk_tipo_quarto
@@ -121,7 +121,7 @@ INSERT INTO tipo_funcionario
         (tipo_funcionario) VALUES
         ("Admin"),
         ("funcionario"),
-	("Recepcionista")
+		("Recepcionista")
         ;
 		
 INSERT INTO status_usuario
@@ -148,10 +148,10 @@ INSERT INTO ponto
         (fk_usuario,data_hora_entrada,data_hora_saida,horas_trabalhadas) VALUES
         (1,'2015-07-30 09:00:00', '2015-07-30 11:00:00',NULL),
         (2,'2015-07-30 09:00:00', '2015-07-30 17:00:00',NULL),
-	(3,'2015-07-30 09:00:00', '2015-07-30 16:00:00',NULL),
-	(1,'2015-07-30 09:00:00', '2015-07-30 11:00:00',NULL),
+		(3,'2015-07-30 09:00:00', '2015-07-30 16:00:00',NULL),
+		(1,'2015-07-30 09:00:00', '2015-07-30 11:00:00',NULL),
         (2,'2015-07-30 09:00:00', '2015-07-30 17:00:00',NULL),
-	(3,'2015-07-30 09:00:00', '2015-07-30 16:00:00',NULL)
+		(3,'2015-07-30 09:00:00', '2015-07-30 16:00:00',NULL)
         ;
 
 INSERT INTO paciente
@@ -176,14 +176,14 @@ INSERT INTO quarto
         (fk_tipo_quarto, fk_status_quarto,quarto) VALUES
         (2,3,1),
         (1,2,2),
-	(1,1,3)
+		(1,1,3)
         ;
 
 INSERT INTO status_saude
         (status_saude) VALUES
         ("Alta"),
         ("Urgencia"),
-	("Emergencia"),
+		("Emergencia"),
         ("Observacao")
         ;
 		

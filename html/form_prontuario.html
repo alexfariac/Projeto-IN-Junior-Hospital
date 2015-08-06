@@ -50,5 +50,20 @@
 	
 	<!--Validacao JS -->
 	<script src="js/validacaoprontuario.js"></script>
+	
+	<!-- Auto complete -->
+	<script>
+		$(function(){
+			var nome_paciente = []; // Adicionar lista de php
+			$('#pacpront').autocomplete({
+				source : nome_paciente;
+			})
+			var nome_medico = []; // Adicionar lista de php
+			$('#medpront').autocomplete({
+				source : nome_medico;
+			})
+		})
+	</script>
+	
 	</body>
 </html>

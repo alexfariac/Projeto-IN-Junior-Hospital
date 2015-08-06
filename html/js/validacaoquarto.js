@@ -1,13 +1,12 @@
 ﻿//Validacao quarto
 
 var numero = document.getElementById("nqt");
-var tipo = document.getElementById("tqt");
 
 var botao = document.getElementById("botao");
 
 botao.addEventListener('click',function(e){
 	e.preventDefault();
-	if(numero.value == "" || tipo.value == ""){
+	if(numero.value == ""){
 		alert("Preencha todos os campos");
 		return false;
 	}else{

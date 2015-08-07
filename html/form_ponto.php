@@ -28,9 +28,11 @@
 							<label class="sr-only" id="campo_senha">Data e Hora fim:</label>
 							<input class="form-control" id="pacpront" placeholder="Data e Hora" required="">
 							
+							<div class="centralizar">
 							<button  type="button" class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
+							</div>
 						</form>
 					</div>
 				</div>

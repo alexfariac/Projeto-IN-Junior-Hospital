@@ -1,5 +1,6 @@
 ﻿#tudo{
 	margin-top:30px;
+	
 }
 
 #estilo{
@@ -13,6 +14,12 @@
 	padding-bottom: 16px;
 	padding-top: 15px;
 	width: 260px;
+}
+#centralizar{
+	
+	text-align: center;
+	margin-top: 20px;
+	
 }
 
 .id_campo{

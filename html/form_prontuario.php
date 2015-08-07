@@ -36,9 +36,11 @@
 							<label class="sr-only" id="campo_senha">Status</label>
 							<input class="form-control" id="stpront" placeholder="Status" required="">
 							
+							<div id="centralizar">
 							<button  type="button" class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
+							</div>
 						</form>
 					</div>
 				</div>

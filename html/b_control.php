@@ -17,6 +17,10 @@
             case 'desloga':
                 desloga();
                 break;
+            case 'cria';
+                insert_paciente($nome=$_REQUEST['nome'],$_REQUEST['cpf']);
+                exit;
+                break;
             case 'ponto':
                 echo "ponto:".$_SESSION['ponto'];
                 if ($_SESSION['ponto'] == 'novo') {
@@ -27,6 +31,7 @@
                 break;
             case 'edit':
                 editar($_REQUEST['entidade'],$_REQUEST['id']);
+                exit;
                 break;
             case 'excl':
                 deletar($_REQUEST['entidade'],$_REQUEST['id']);
@@ -35,4 +40,3 @@
         }
     }
     header("Location:home.php");
-?>

@@ -18,7 +18,7 @@
 
 
 <footer id='rodape'>
-    <p id='copyrigth'>Copyrigth 2015 IN Junior</p>
+    <p id='copyrigth'>Copyright 2015 IN Junior</p>
 </footer>
 
 

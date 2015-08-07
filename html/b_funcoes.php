@@ -294,11 +294,11 @@
                 foreach ($fields as $field) {
                     if ($field == 'editar') {
                         echo "<th>"
-                            . "<a href='b_control.php?op=edit&id=$id' class='btn btn-primary'><span class='glyphicon glyphicon-pencil'></span> Editar </a>"
+                            . "<a href='b_control.php?op=edit&id=$id&entidade=$tabela' class='btn btn-primary'><span class='glyphicon glyphicon-pencil'></span> Editar </a>"
                             . "</th>";
                     } elseif ($field == 'excluir') {
                         echo "<th>"
-                            . "<a href='b_control.php?op=excl&id=$id' class='btn btn-primary'><span class='glyphicon glyphicon-trash'></span> Excluir </a>"
+                            . "<a href='b_control.php?op=excl&id=$id&entidade=$tabela' class='btn btn-primary'><span class='glyphicon glyphicon-trash'></span> Excluir </a>"
                             . "</th>";
                     } else {
                         echo("<th>" . $data[$field] . "</th>");
@@ -392,9 +392,7 @@
         }
         $query = $conn->query($sql);
         $data = $query->fetch_array();
-        foreach($data as $da){
-            echo $da;
-        }
+        header("Location:form_paciente.php");
     }
     function auto_update_ponto($id){
         $conn = conecta_bd();
@@ -439,7 +437,3 @@
         }else{
             echo "Deu ruim!";}
     }
-
-
-
-?>

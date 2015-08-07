@@ -14,14 +14,14 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4" id="estilo">
 					<div class="borda">
-						<form class="form-signin" id="formpaciente">
+						<form class="form-signin" id="formpaciente" method="POST" action="b_control.php?op=cria" enctype="multipart/form-data">
 							<span class="id_campo">Nome:</span>
 							<label for="inputEmail" class="sr-only">Nome</label>
-							<input id="inputEmail" class="form-control" placeholder="Nome" required="" autofocus="" <?php echo "value=".$data['nome']?>>
+							<input name="nome" id="inputEmail" class="form-control" placeholder="Nome" required="" autofocus="">
 							<span class="id_campo">CPF:</span>
 							<label class="sr-only" id="campo_senha">CPF</label>
-							<input id="inputPassword" class="form-control" placeholder="CPF" required="" <?php echo "value=".$data['cpf']?>>
-							<button  type="button"	 class="log">
+							<input name="cpf" id="inputPassword" class="form-control" placeholder="CPF" required="">
+							<button  type="submit"	 class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
 						</form>

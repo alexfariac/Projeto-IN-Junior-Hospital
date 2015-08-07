@@ -11,8 +11,7 @@ botao.addEventListener('click',function(e){
 	e.preventDefault();
 	if(quarto.value == '' ||
 		medico.value == '' ||
-		paciente.value == '' ||
-		saude.value == ''){
+		paciente.value == ''){
 			alert("Por favor preencha todos os campos");
 			return false;
 		}else if(isNaN(Number(quarto.value))){

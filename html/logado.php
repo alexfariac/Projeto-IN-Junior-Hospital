@@ -13,7 +13,7 @@
 <div id='header'>
     <img id='logo' src='img/logo.jpg'>
     <?php
-    echo $_SESSION['nome'];
+    echo  "<span id='nomeusuario'>".$_SESSION['nome']."</span>";
     ?>
 
     <form id='pheader' method='POST' action='b_control.php?op=desloga' enctype='multipart/form-data'>
@@ -34,7 +34,7 @@
     carraga_menu($_SESSION['tipo']);
 ?>
 
-<iframe class='formula' src='in.php?op=ver&entidade=ponto' name='iframe'></iframe>
+<iframe class='formula' src='in.php?op=ver&entidade=ponto' id='iframe' name='iframe'></iframe>
 
 
 <footer id='rodape'>

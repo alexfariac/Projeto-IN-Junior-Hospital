@@ -1,4 +1,15 @@
-﻿body{
+﻿#iframe{
+	width:80%;
+	left:250px;
+}
+
+#nomeusuario{
+	font-size:25;
+	padding-left:100;
+	font-family:-webkit-pictograph;
+}
+
+body{
 	height:543px;
 }
 

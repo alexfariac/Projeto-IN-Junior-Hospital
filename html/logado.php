@@ -29,75 +29,10 @@
 </div>
 
 
-<nav class='navbar navbar-default' role='navigation'>
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class='navbar-header'>
-        <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-ex1-collapse'>
-            <span class='sr-only'>Toggle navigation</span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-        </button>
-    </div>
-<div class='collapse navbar-collapse navbar-ex1-collapse'>
-    <ul class='nav navbar-nav navbar-left'>
-        <li class='dropdown'>
-            <a  class='dropdown-toggle' data-toggle='dropdown'><font>Funcionario</font><b class='caret'></b></a>
-            <ul class='dropdown-menu'>
-                <li><a href='form_funcionario.php?op=criar' target="iframe">Criar</a></li>
-                <li><a href='form_funcionario.php?op=ver' target="iframe">Visualizar</a></li>
-            </ul>
-        </li>
-    </ul><!--Funcionario-->
-    <ul class='nav navbar-nav navbar-left'>
-        <li class='dropdown'>
-            <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Ponto</font><b class='caret'></b></a>
-            <ul class='dropdown-menu'>
-                <li><a href='form_ponto.php?op=criar' target="iframe">Criar</a></li>
-                <li><a href='form_ponto.php?op=ver' target="iframe">Visualizar</a></li>
-            </ul>
-        </li>
-    </ul><!--Ponto-->
-    <ul class='nav navbar-nav navbar-left'>
-        <li class='dropdown'>
-            <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Paciente</font><b class='caret'></b></a>
-            <ul class='dropdown-menu'>
-                <li><a href='form_paciente.php?op=criar' target="iframe">Criar</a></li>
-                <li><a href='form_paciente.php?op=ver' target="iframe">Visualizar</a></li>
-            </ul>
-        </li>
-    </ul><!--Paciente-->
-    <ul class='nav navbar-nav navbar-left'>
-        <li class='dropdown'>
-            <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Prontuario</font><b class='caret'></b></a>
-            <ul class='dropdown-menu'>
-                <li><a href='form_prontuario.php?op=criar' target="iframe">Criar</a></li>
-                <li><a href='form_prontuario.php?op=ver' target="iframe">Visualizar</a></li>
-            </ul>
-        </li>
-    </ul><!--Prontuario-->
-    <ul class='nav navbar-nav navbar-left'>
-        <li class='dropdown'>
-            <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Quarto</font><b class='caret'></b></a>
-            <ul class='dropdown-menu'>
-                <li><a href='form_quarto.php?op=criar' target="iframe">Criar</a></li>
-                <li><a href='form_quarto.php?op=ver' target="iframe">Visualizar</a></li>
-            </ul>
-        </li>
-    </ul><!--Quarto-->
-    <ul class='nav navbar-nav navbar-left'>
-        <li class='dropdown'>
-            <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Admin</font><b class='caret'></b></a>
-            <ul class='dropdown-menu'>
-                <li><a href='form_generico.php' target='iframe'>Tipo Quarto</a></li>
-                <li><a href='form_generico.php' target='iframe'>Status Quarto</a></li>
-                <li><a href='form_generico.php' target='iframe'>Tipo Usuario</a></li>
-                <li><a href='form_generico.php' target='iframe'>Status Usuario</a></li>
-                <li><a href='form_generico.php' target='iframe'>Status Saude</a></li>
-            </ul>
-        </li>
-    </ul><!--Admin-->
-</div><!-- /.navbar-collapse -->
+<?php
+    include "b_funcoes.php";
+    carraga_menu($_SESSION['tipo']);
+?>
 
 <iframe class='formula' src='form_quarto.php' name='iframe'></iframe>
 

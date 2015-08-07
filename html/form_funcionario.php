@@ -44,10 +44,11 @@
 							<label class="sr-only" id="campo_senha">Senha</label>
 							<input type="password" id="inputPassword" class="form-control" placeholder="Senha" required="">
 							
-							
+							<div id="centralizar">
 							<button  type="button" class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
+							</div>
 						</form>
 					</div>
 				</div>

@@ -14,6 +14,11 @@
 	padding-top: 15px;
 	width: 260px;
 }
+#centralizar{
+	text-align: center;
+	margin-top:20px;
+	
+}
 
 .id_campo{
 	color: white;

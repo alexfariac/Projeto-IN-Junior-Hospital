@@ -4,7 +4,7 @@
 	<link href='css/bootstrap.min.css' rel='stylesheet'>
 	<link rel='stylesheet' type='text/css' href='css/theme.css'>
 </head>
-<body>
+<body background="img/hp1.jpg" bgproperties="fixed">
 <div id='header'>
     <img id='logo' src='img/logo.jpg'>
     <form id='fheader' method='POST' action='b_control.php?op=valida' enctype='multipart/form-data'>

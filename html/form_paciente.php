@@ -17,10 +17,10 @@
 						<form class="form-signin" id="formpaciente">
 							<span class="id_campo">Nome:</span>
 							<label for="inputEmail" class="sr-only">Nome</label>
-							<input id="inputEmail" class="form-control" placeholder="Nome" required="" autofocus="">
+							<input id="inputEmail" class="form-control" placeholder="Nome" required="" autofocus="" <?php echo "value=".$data['nome']?>>
 							<span class="id_campo">CPF:</span>
 							<label class="sr-only" id="campo_senha">CPF</label>
-							<input id="inputPassword" class="form-control" placeholder="CPF" required="">
+							<input id="inputPassword" class="form-control" placeholder="CPF" required="" <?php echo "value=".$data['cpf']?>>
 							<button  type="button"	 class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>

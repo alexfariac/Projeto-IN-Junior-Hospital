@@ -406,9 +406,22 @@
             $_SESSION['ponto'] = 'novo';
         }else{
             echo "Deu ruim!";}
+    }
+    function update($tabela,$id,$array1,$array2){
+        $conn = conecta_bd();
+        $sql =  "UPDATE $tabela SET ";
+        for($i=0;$i<count($array1);$i++){
+            $sql .= $array1[$i]." = ". $array2[$i];
+        }
+        if($tabela=='funcionario'){
+            $sql .= "WHERE fk_usuario= $id";
+        }else{
+            $sql .= "WHERE id_$tabela = $id";
+        }
+        $query = $conn->query($sql);
+        $data = $query->fetch_array();
 
     }
-
     //Delete...
     function deletar($tabela,$id){
         $conn = conecta_bd();
@@ -426,9 +439,7 @@
         }else{
             echo "Deu ruim!";}
     }
-    function delete_prontuario(){
 
-    }
 
 
 ?>

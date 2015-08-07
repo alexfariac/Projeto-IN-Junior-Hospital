@@ -11,20 +11,20 @@
     <div class='collapse navbar-collapse navbar-ex1-collapse'>
         <ul class='nav navbar-nav navbar-left'>
             <li class='dropdown'>
-                <a href='form_ponto.php?op=ver' target='iframe' ><font>Ponto</font><b class='caret'></b></a>
+                <a href='in.php?op=ver' target='iframe' ><font>Ponto</font><b class='caret'></b></a>
             </li>
         </ul><!--Ponto-->
         <ul class='nav navbar-nav navbar-left'>
             <li class='dropdown'>
-                <a href='form_paciente.php?op=ver' target='iframe'><font>Paciente</font><b class='caret'></b></a>
+                <a href='in.php?op=ver' target='iframe'><font>Paciente</font><b class='caret'></b></a>
             </li>
         </ul><!--Paciente-->
         <ul class='nav navbar-nav navbar-left'>
             <li class='dropdown'>
                 <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Prontuario</font><b class='caret'></b></a>
                 <ul class='dropdown-menu'>
-                    <li><a href='form_prontuario.php?op=criar' target='iframe'>Criar</a></li>
-                    <li><a href='form_prontuario.php?op=ver' target='iframe'>Visualizar</a></li>
+                    <li><a href='in.php?op=criar' target='iframe'>Criar</a></li>
+                    <li><a href='in.php?op=ver' target='iframe'>Visualizar</a></li>
                 </ul>
             </li>
         </ul><!--Prontuario-->

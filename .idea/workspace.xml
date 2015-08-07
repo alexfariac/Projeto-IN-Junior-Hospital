@@ -2,10 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a761563-0863-4ffd-be13-317dbffd4449" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\css\estilo_add_ponto - Atalho.lnk" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\addPonto.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\dataTable.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\jquery-1.10.2.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\jquery-1.11.3.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\jquery-2.1.4.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\jquery.dataTables.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\lista.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\npm.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\ui\jquery-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\validacao.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\validacaofuncionario.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\validacaopaciente.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\validacaoprontuario.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js\validacaoquarto.js" afterPath="" />
+      <change type="MOVED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\menu\menu1.php" afterPath="$PROJECT_DIR$/html/in/menu1.php" />
+      <change type="MOVED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\menu\menu2.php" afterPath="$PROJECT_DIR$/html/in/menu2.php" />
+      <change type="MOVED" beforePath="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\menu\menu3.php" afterPath="$PROJECT_DIR$/html/in/menu3.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/_tst.php" afterPath="$PROJECT_DIR$/html/_tst.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/b_control.php" afterPath="$PROJECT_DIR$/html/b_control.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/b_funcoes.php" afterPath="$PROJECT_DIR$/html/b_funcoes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/deslogado.php" afterPath="$PROJECT_DIR$/html/deslogado.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/logado.php" afterPath="$PROJECT_DIR$/html/logado.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,69 +48,70 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="b_funcoes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="b_funcoes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/b_funcoes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.4363636">
-              <caret line="53" column="32" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.75495493">
+              <caret line="418" column="35" selection-start-line="418" selection-start-column="35" selection-end-line="418" selection-end-column="35" />
               <folding>
-                <element signature="n#loga#0;n#!!top" expanded="false" />
                 <element signature="n#desloga#0;n#!!top" expanded="false" />
                 <element signature="n#insert_paciente#0;n#!!top" expanded="false" />
                 <element signature="n#insert_prontuario#0;n#!!top" expanded="false" />
                 <element signature="n#insert_quarto#0;n#!!top" expanded="false" />
-                <element signature="n#insert_ponto#0;n#!!top" expanded="false" />
+                <element signature="n#auto_insert_ponto#0;n#!!top" expanded="false" />
                 <element signature="n#insert_funcionario#0;n#!!top" expanded="false" />
                 <element signature="n#insert_generico#0;n#!!top" expanded="false" />
-                <element signature="e#6445#9505#0#PHP" expanded="false" />
+                <element signature="e#6448#9508#0#PHP" expanded="false" />
                 <element signature="n#autocomplete#0;n#!!top" expanded="false" />
                 <element signature="n#tabela#0;n#!!top" expanded="false" />
                 <element signature="n#select_paciente#0;n#!!top" expanded="false" />
+                <element signature="e#12338#13549#0#PHP" expanded="false" />
                 <element signature="n#select_prontuario#0;n#!!top" expanded="false" />
                 <element signature="n#select_quarto#0;n#!!top" expanded="false" />
                 <element signature="n#select_ponto#0;n#!!top" expanded="false" />
                 <element signature="n#select_funcionario#0;n#!!top" expanded="false" />
                 <element signature="n#select_generico#0;n#!!top" expanded="false" />
-                <element signature="n#update_ponto#0;n#!!top" expanded="false" />
-                <marker date="1438921700349" expanded="true" signature="137:223" placeholder="SELECT id_us..usuario..." />
-                <marker date="1438921700349" expanded="true" signature="729:789" placeholder="select * fro..funcionario..." />
-                <marker date="1438921700349" expanded="true" signature="1091:1179" placeholder="select id_po..ponto..." />
-                <marker date="1438921700349" expanded="true" signature="1091:1180" placeholder="select id_po..ponto..." />
-                <marker date="1438921700349" expanded="true" signature="2240:2284" placeholder="INSERT INTO ..." />
-                <marker date="1438921700349" expanded="true" signature="2857:2949" placeholder="INSERT INTO ..." />
-                <marker date="1438921700349" expanded="true" signature="3526:3581" placeholder="INSERT INTO ..." />
-                <marker date="1438921700349" expanded="true" signature="4124:4164" placeholder="INSERT INTO ..." />
-                <marker date="1438921700349" expanded="true" signature="4781:4827" placeholder="INSERT INTO ..." />
-                <marker date="1438921700349" expanded="true" signature="5108:5200" placeholder="INSERT INTO ..." />
-                <marker date="1438921700349" expanded="true" signature="6013:6053" placeholder="INSERT INTO ..." />
-                <marker date="1438921700349" expanded="true" signature="9602:9619" placeholder="SELECT nome ..." />
-                <marker date="1438921700349" expanded="true" signature="9608:9619" placeholder="select * fro..." />
-                <marker date="1438921700349" expanded="true" signature="10007:10045" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="10432:10520" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="10982:11004" placeholder="SELECT * FRO..paciente..." />
-                <marker date="1438921700349" expanded="true" signature="10988:11004" placeholder="select * fro..paciente..." />
-                <marker date="1438921700349" expanded="true" signature="11406:11498" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="11540:11623" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="11668:11709" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="11961:12002" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="12472:12733" placeholder="SELECT quart..prontuario..." />
-                <marker date="1438921700349" expanded="true" signature="12940:13323" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="13124:13279" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="13460:13629" placeholder="SELECT quart..quarto..." />
-                <marker date="1438921700349" expanded="true" signature="13818:14200" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="14002:14156" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="14336:14439" placeholder="SELECT nome,..ponto..." />
-                <marker date="1438921700349" expanded="true" signature="14666:15048" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="14850:15004" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="15190:15472" placeholder="select nome,..funcionario..." />
-                <marker date="1438921700349" expanded="true" signature="15692:16074" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="15876:16030" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="16220:16234" placeholder="select * fro..." />
-                <marker date="1438921700349" expanded="true" signature="16427:16809" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="16611:16765" placeholder="..." />
-                <marker date="1438921700349" expanded="true" signature="16955:16956" placeholder="select * fro..." />
-                <marker date="1438921700349" expanded="true" signature="16955:16961" placeholder="select * fro..ponto..." />
+                <marker date="1438932435757" expanded="true" signature="137:223" placeholder="SELECT id_us..usuario..." />
+                <marker date="1438932435757" expanded="true" signature="729:789" placeholder="select * fro..funcionario..." />
+                <marker date="1438932435757" expanded="true" signature="1091:1179" placeholder="select id_po..ponto..." />
+                <marker date="1438932435757" expanded="true" signature="1091:1180" placeholder="select id_po..ponto..." />
+                <marker date="1438932435757" expanded="true" signature="2238:2282" placeholder="INSERT INTO ..." />
+                <marker date="1438932435757" expanded="true" signature="2855:2947" placeholder="INSERT INTO ..." />
+                <marker date="1438932435757" expanded="true" signature="3524:3579" placeholder="INSERT INTO ..." />
+                <marker date="1438932435757" expanded="true" signature="4127:4167" placeholder="INSERT INTO ..." />
+                <marker date="1438932435757" expanded="true" signature="4784:4830" placeholder="INSERT INTO ..." />
+                <marker date="1438932435757" expanded="true" signature="5111:5203" placeholder="INSERT INTO ..." />
+                <marker date="1438932435757" expanded="true" signature="6016:6056" placeholder="INSERT INTO ..." />
+                <marker date="1438932435757" expanded="true" signature="9605:9622" placeholder="SELECT nome ..." />
+                <marker date="1438932435757" expanded="true" signature="9611:9622" placeholder="select * fro..." />
+                <marker date="1438932435757" expanded="true" signature="9997:10028" placeholder="..." />
+                <marker date="1438932435757" expanded="true" signature="10380:11695" placeholder="..." />
+                <marker date="1438932435757" expanded="true" signature="12149:12171" placeholder="SELECT * FRO..paciente..." />
+                <marker date="1438932435757" expanded="true" signature="12155:12171" placeholder="select * fro..paciente..." />
+                <marker date="1438932435757" expanded="true" signature="12568:12651" placeholder="..." />
+                <marker date="1438932435757" expanded="true" signature="12693:12776" placeholder="..." />
+                <marker date="1438932435757" expanded="true" signature="12821:12862" placeholder="..." />
+                <marker date="1438932435757" expanded="true" signature="13114:13155" placeholder="..." />
+                <marker date="1438932435757" expanded="true" signature="13684:13945" placeholder="SELECT quart..prontuario..." />
+                <marker date="1438932435757" expanded="true" signature="14187:14356" placeholder="SELECT quart..quarto..." />
+                <marker date="1438932435757" expanded="true" signature="14574:14606" placeholder="SELECT nome,..ponto..." />
+                <marker date="1438932435757" expanded="true" signature="14888:15170" placeholder="select nome,..funcionario..." />
+                <marker date="1438932435757" expanded="true" signature="15454:15468" placeholder="select * fro..." />
+                <marker date="1438932435757" expanded="true" signature="15731:15772" placeholder="SELECT * FRO..." />
+                <marker date="1438932435757" expanded="true" signature="15813:15854" placeholder="SELECT * FRO..." />
+                <marker date="1438932435757" expanded="true" signature="16105:16106" placeholder="select * fro..." />
+                <marker date="1438932435757" expanded="true" signature="16105:16111" placeholder="select * fro..ponto..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_tst.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/_tst.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.769231">
+              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,25 +119,27 @@
       <file leaf-file-name="home.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3076923">
-              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="28" />
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="menu1.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/menu/menu1.php">
+        <entry file="file://$PROJECT_DIR$/html/in/menu1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.038462">
-              <caret line="113" column="37" selection-start-line="113" selection-start-column="37" selection-end-line="113" selection-end-column="37" />
-              <folding />
+            <state vertical-scroll-proportion="-19.369047">
+              <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+              <folding>
+                <element signature="e#6630#7179#0#HTML" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="menu2.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/menu/menu2.php">
+        <entry file="file://$PROJECT_DIR$/html/in/menu2.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-2.6153846">
               <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="15" selection-end-column="25" />
@@ -132,7 +154,7 @@
         </entry>
       </file>
       <file leaf-file-name="menu3.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/menu/menu3.php">
+        <entry file="file://$PROJECT_DIR$/html/in/menu3.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-4.576923">
               <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
@@ -147,11 +169,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logado.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="logado.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/logado.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8537005">
-              <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            <state vertical-scroll-proportion="-17.423077">
+              <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
               <folding>
                 <element signature="e#10#28#0#PHP" expanded="true" />
               </folding>
@@ -162,18 +184,8 @@
       <file leaf-file-name="b_control.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/b_control.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.26923">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_tst.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/_tst.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923">
-              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+            <state vertical-scroll-proportion="-20.038462">
+              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -194,17 +206,24 @@
         <option value="$PROJECT_DIR$/html/lateralnav.html" />
         <option value="$PROJECT_DIR$/html/lateralnav.php" />
         <option value="$PROJECT_DIR$/html/funcoes.php" />
-        <option value="$PROJECT_DIR$/html/home.php" />
         <option value="$PROJECT_DIR$/html/b_valida.php" />
-        <option value="$PROJECT_DIR$/html/deslogado.php" />
         <option value="$PROJECT_DIR$/html/form_prontuario.php" />
-        <option value="$PROJECT_DIR$/html/_tst.php" />
-        <option value="$PROJECT_DIR$/html/b_control.php" />
         <option value="$PROJECT_DIR$/html/menu/menu1.php" />
         <option value="$PROJECT_DIR$/html/menu/menu2.php" />
         <option value="$PROJECT_DIR$/html/menu/menu3.php" />
-        <option value="$PROJECT_DIR$/html/b_funcoes.php" />
+        <option value="$PROJECT_DIR$/html/in/logado.php" />
+        <option value="$PROJECT_DIR$/html/in/form_funcionario.php" />
+        <option value="$PROJECT_DIR$/html/in/deslogado.php" />
+        <option value="$PROJECT_DIR$/html/home.php" />
+        <option value="$PROJECT_DIR$/html/deslogado.php" />
+        <option value="$PROJECT_DIR$/html/in/ver.php" />
+        <option value="$PROJECT_DIR$/html/in/in.php" />
+        <option value="$PROJECT_DIR$/html/in.php" />
+        <option value="$PROJECT_DIR$/html/in/menu1.php" />
+        <option value="$PROJECT_DIR$/html/_tst.php" />
         <option value="$PROJECT_DIR$/html/logado.php" />
+        <option value="$PROJECT_DIR$/html/b_control.php" />
+        <option value="$PROJECT_DIR$/html/b_funcoes.php" />
       </list>
     </option>
   </component>
@@ -297,42 +316,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projeto Hospital" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projeto Hospital" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projeto Hospital" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Projeto Hospital" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -347,8 +330,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js" />
       <recent name="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html" />
+      <recent name="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\in" />
+      <recent name="C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\Projeto Hospital\html\js" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.login.html">
@@ -412,6 +396,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -422,10 +407,29 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17935579" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -440,7 +444,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/html/b_funcoes.php</url>
+          <line>378</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -467,23 +478,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/_tst.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/menu/menu1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.038462">
-          <caret line="113" column="37" selection-start-line="113" selection-start-column="37" selection-end-line="113" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/menu/menu2.php">
+    <entry file="file://$PROJECT_DIR$/html/in/menu2.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6153846">
           <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="15" selection-end-column="25" />
@@ -496,7 +491,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/menu/menu3.php">
+    <entry file="file://$PROJECT_DIR$/html/in/menu3.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.576923">
           <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
@@ -510,93 +505,161 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/b_control.php">
+    <entry file="file://$PROJECT_DIR$/html/form_ponto.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.26923">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        <state vertical-scroll-proportion="-0.08777969">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/addPonto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/form_funcionario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26333907">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/js/ui/jquery-ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1438922996016" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438922996016" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438922996016" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438922996016" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438922996016" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/img/home.psd">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/html/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="28" />
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/deslogado.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/in/menu1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.369047">
+          <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+          <folding>
+            <element signature="e#6630#7179#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/_tst.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.769231">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/in.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18378378">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/logado.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.423077">
+          <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
+          <folding>
+            <element signature="e#10#28#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/b_control.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.038462">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/b_funcoes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4363636">
-          <caret line="53" column="32" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.75495493">
+          <caret line="418" column="35" selection-start-line="418" selection-start-column="35" selection-end-line="418" selection-end-column="35" />
           <folding>
-            <element signature="n#loga#0;n#!!top" expanded="false" />
             <element signature="n#desloga#0;n#!!top" expanded="false" />
             <element signature="n#insert_paciente#0;n#!!top" expanded="false" />
             <element signature="n#insert_prontuario#0;n#!!top" expanded="false" />
             <element signature="n#insert_quarto#0;n#!!top" expanded="false" />
-            <element signature="n#insert_ponto#0;n#!!top" expanded="false" />
+            <element signature="n#auto_insert_ponto#0;n#!!top" expanded="false" />
             <element signature="n#insert_funcionario#0;n#!!top" expanded="false" />
             <element signature="n#insert_generico#0;n#!!top" expanded="false" />
-            <element signature="e#6445#9505#0#PHP" expanded="false" />
+            <element signature="e#6448#9508#0#PHP" expanded="false" />
             <element signature="n#autocomplete#0;n#!!top" expanded="false" />
             <element signature="n#tabela#0;n#!!top" expanded="false" />
             <element signature="n#select_paciente#0;n#!!top" expanded="false" />
+            <element signature="e#12338#13549#0#PHP" expanded="false" />
             <element signature="n#select_prontuario#0;n#!!top" expanded="false" />
             <element signature="n#select_quarto#0;n#!!top" expanded="false" />
             <element signature="n#select_ponto#0;n#!!top" expanded="false" />
             <element signature="n#select_funcionario#0;n#!!top" expanded="false" />
             <element signature="n#select_generico#0;n#!!top" expanded="false" />
-            <element signature="n#update_ponto#0;n#!!top" expanded="false" />
-            <marker date="1438921700349" expanded="true" signature="137:223" placeholder="SELECT id_us..usuario..." />
-            <marker date="1438921700349" expanded="true" signature="729:789" placeholder="select * fro..funcionario..." />
-            <marker date="1438921700349" expanded="true" signature="1091:1179" placeholder="select id_po..ponto..." />
-            <marker date="1438921700349" expanded="true" signature="1091:1180" placeholder="select id_po..ponto..." />
-            <marker date="1438921700349" expanded="true" signature="2240:2284" placeholder="INSERT INTO ..." />
-            <marker date="1438921700349" expanded="true" signature="2857:2949" placeholder="INSERT INTO ..." />
-            <marker date="1438921700349" expanded="true" signature="3526:3581" placeholder="INSERT INTO ..." />
-            <marker date="1438921700349" expanded="true" signature="4124:4164" placeholder="INSERT INTO ..." />
-            <marker date="1438921700349" expanded="true" signature="4781:4827" placeholder="INSERT INTO ..." />
-            <marker date="1438921700349" expanded="true" signature="5108:5200" placeholder="INSERT INTO ..." />
-            <marker date="1438921700349" expanded="true" signature="6013:6053" placeholder="INSERT INTO ..." />
-            <marker date="1438921700349" expanded="true" signature="9602:9619" placeholder="SELECT nome ..." />
-            <marker date="1438921700349" expanded="true" signature="9608:9619" placeholder="select * fro..." />
-            <marker date="1438921700349" expanded="true" signature="10007:10045" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="10432:10520" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="10982:11004" placeholder="SELECT * FRO..paciente..." />
-            <marker date="1438921700349" expanded="true" signature="10988:11004" placeholder="select * fro..paciente..." />
-            <marker date="1438921700349" expanded="true" signature="11406:11498" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="11540:11623" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="11668:11709" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="11961:12002" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="12472:12733" placeholder="SELECT quart..prontuario..." />
-            <marker date="1438921700349" expanded="true" signature="12940:13323" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="13124:13279" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="13460:13629" placeholder="SELECT quart..quarto..." />
-            <marker date="1438921700349" expanded="true" signature="13818:14200" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="14002:14156" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="14336:14439" placeholder="SELECT nome,..ponto..." />
-            <marker date="1438921700349" expanded="true" signature="14666:15048" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="14850:15004" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="15190:15472" placeholder="select nome,..funcionario..." />
-            <marker date="1438921700349" expanded="true" signature="15692:16074" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="15876:16030" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="16220:16234" placeholder="select * fro..." />
-            <marker date="1438921700349" expanded="true" signature="16427:16809" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="16611:16765" placeholder="..." />
-            <marker date="1438921700349" expanded="true" signature="16955:16956" placeholder="select * fro..." />
-            <marker date="1438921700349" expanded="true" signature="16955:16961" placeholder="select * fro..ponto..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/logado.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8537005">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-          <folding>
-            <element signature="e#10#28#0#PHP" expanded="true" />
+            <marker date="1438932435757" expanded="true" signature="137:223" placeholder="SELECT id_us..usuario..." />
+            <marker date="1438932435757" expanded="true" signature="729:789" placeholder="select * fro..funcionario..." />
+            <marker date="1438932435757" expanded="true" signature="1091:1179" placeholder="select id_po..ponto..." />
+            <marker date="1438932435757" expanded="true" signature="1091:1180" placeholder="select id_po..ponto..." />
+            <marker date="1438932435757" expanded="true" signature="2238:2282" placeholder="INSERT INTO ..." />
+            <marker date="1438932435757" expanded="true" signature="2855:2947" placeholder="INSERT INTO ..." />
+            <marker date="1438932435757" expanded="true" signature="3524:3579" placeholder="INSERT INTO ..." />
+            <marker date="1438932435757" expanded="true" signature="4127:4167" placeholder="INSERT INTO ..." />
+            <marker date="1438932435757" expanded="true" signature="4784:4830" placeholder="INSERT INTO ..." />
+            <marker date="1438932435757" expanded="true" signature="5111:5203" placeholder="INSERT INTO ..." />
+            <marker date="1438932435757" expanded="true" signature="6016:6056" placeholder="INSERT INTO ..." />
+            <marker date="1438932435757" expanded="true" signature="9605:9622" placeholder="SELECT nome ..." />
+            <marker date="1438932435757" expanded="true" signature="9611:9622" placeholder="select * fro..." />
+            <marker date="1438932435757" expanded="true" signature="9997:10028" placeholder="..." />
+            <marker date="1438932435757" expanded="true" signature="10380:11695" placeholder="..." />
+            <marker date="1438932435757" expanded="true" signature="12149:12171" placeholder="SELECT * FRO..paciente..." />
+            <marker date="1438932435757" expanded="true" signature="12155:12171" placeholder="select * fro..paciente..." />
+            <marker date="1438932435757" expanded="true" signature="12568:12651" placeholder="..." />
+            <marker date="1438932435757" expanded="true" signature="12693:12776" placeholder="..." />
+            <marker date="1438932435757" expanded="true" signature="12821:12862" placeholder="..." />
+            <marker date="1438932435757" expanded="true" signature="13114:13155" placeholder="..." />
+            <marker date="1438932435757" expanded="true" signature="13684:13945" placeholder="SELECT quart..prontuario..." />
+            <marker date="1438932435757" expanded="true" signature="14187:14356" placeholder="SELECT quart..quarto..." />
+            <marker date="1438932435757" expanded="true" signature="14574:14606" placeholder="SELECT nome,..ponto..." />
+            <marker date="1438932435757" expanded="true" signature="14888:15170" placeholder="select nome,..funcionario..." />
+            <marker date="1438932435757" expanded="true" signature="15454:15468" placeholder="select * fro..." />
+            <marker date="1438932435757" expanded="true" signature="15731:15772" placeholder="SELECT * FRO..." />
+            <marker date="1438932435757" expanded="true" signature="15813:15854" placeholder="SELECT * FRO..." />
+            <marker date="1438932435757" expanded="true" signature="16105:16106" placeholder="select * fro..." />
+            <marker date="1438932435757" expanded="true" signature="16105:16111" placeholder="select * fro..ponto..." />
           </folding>
         </state>
       </provider>

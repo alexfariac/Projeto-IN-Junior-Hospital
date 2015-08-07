@@ -16,8 +16,8 @@
     //insert_generico($tabela,$data);
     //select_prontuario();
     //select_quarto();
-    //select_funcionario();
+    select_funcionario();
     //select_ponto();
-    select_paciente();
+    //select_paciente();
     //print_r(autocomplete('paciente'));
     ?>

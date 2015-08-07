@@ -7,7 +7,7 @@
 <body background="img/huap1951.jpg" bgproperties="fixed">
 <div id='header'>
     <img id='logo' src='img/logo.jpg'>
-    <form id='fheader' method='POST' action='b_control.php?op=valida' enctype='multipart/form-data'>
+    <form id='fheader' method='POST' action='b_control.php?op=loga' enctype='multipart/form-data'>
         <input type='text' placeholder='Usuário' name='login'>
         <input type='password' placeholder='Senha' name='senha'>
         <button  type='submit' class='log'>

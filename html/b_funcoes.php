@@ -52,7 +52,7 @@
     }
     //Carregar Menu
     function carraga_menu($tipo){
-        require "menu/menu". $tipo .".php";
+        require "in/menu". $tipo .".php";
     }
     //Create...
     function insert_paciente($nome,$cpf){
@@ -106,7 +106,7 @@
         }
         mysqli_close($conn);
     }
-    function insert_ponto($fk_usuario){
+    function auto_insert_ponto($fk_usuario){
         echo('Inserindo Ponto...');
         $conn = conecta_bd();
         $sql = "INSERT INTO ponto(fk_usuario) values (?)";
@@ -267,33 +267,61 @@
         }
         return $nomes;
     }
-    function tabela($parte){
-        if($parte == "abre"){
-            $abre =     "<head>";
-            $abre .=    "<link rel='stylesheet' type='text/css' href='css/jquery.dataTables.min.css'>";
-            $abre .=    "<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>";
-            $abre .=    "<link rel='stylesheet' type='text/css' href='css/bootstrap-theme.min.css'>";
-            $abre .=    "</head>";
-            $abre .=    "<body><table id='tabela'>";
-            $abre .=    "<thead>";
+    function tabela($tabela,$conn,$sql,$fields)
+    {
+        $abre = "<head>";
+        $abre .= "<link rel='stylesheet' type='text/css' href='css/jquery.dataTables.min.css'>";
+        $abre .= "<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>";
+        $abre .= "<link rel='stylesheet' type='text/css' href='css/bootstrap-theme.min.css'>";
+        $abre .= "</head>";
+        $abre .= "<body><table id='tabela'>";
+        $abre .= "<thead>";
+
+        $query = $conn->query($sql);
+        if ($query->num_rows > 0) {
             echo $abre;
-        }elseif($parte == "fecha"){
-            $fecha =    "</tbody></table>";
-            $fecha .=   "<script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>";
-            $fecha .=   "<script type='text/javascript' src='js/jquery.dataTables.min.js'></script>";
-            $fecha .=   "<script type='text/javascript' src='js/dataTable.js'></script>";
-            $fecha .=   "</body>";
+            foreach ($fields as $field) {
+                echo("<th>" . $field . "</th>");
+            }
+            echo "</thead><tbody>";
+            while ($data = $query->fetch_array()) {
+                if($tabela == 'funcionario'){
+                    $id = $data['fk_usuario'];
+                }else{
+                    $id = $data['id_' . $tabela];
+                }
+                echo("<tr>");
+                foreach ($fields as $field) {
+                    if ($field == 'editar') {
+                        echo "<th>"
+                            . "<a href='b_control.php?op=edit&id=$id' class='btn btn-primary'><span class='glyphicon glyphicon-pencil'></span> Editar </a>"
+                            . "</th>";
+                    } elseif ($field == 'excluir') {
+                        echo "<th>"
+                            . "<a href='b_control.php?op=excl&id=$id' class='btn btn-primary'><span class='glyphicon glyphicon-trash'></span> Excluir </a>"
+                            . "</th>";
+                    } else {
+                        echo("<th>" . $data[$field] . "</th>");
+                    }
+                }
+                echo("</tr>");
+            }
+            $fecha = "</tbody></table>";
+            $fecha .= "<script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>";
+            $fecha .= "<script type='text/javascript' src='js/jquery.dataTables.min.js'></script>";
+            $fecha .= "<script type='text/javascript' src='js/dataTable.js'></script>";
+            $fecha .= "</body>";
             echo $fecha;
         }
     }
     function select_paciente(){
         $conn = conecta_bd();
         $sql ="SELECT * FROM paciente";
-        if($_SESSION['tipo']=="medico"){
+        if($_SESSION['tipo']==2){
             $sql .= "WHERE fk_usuario =".$_SESSION["user"];
         }
         $fields = ['nome','cpf','editar','excluir'];
-        $query = $conn->query($sql);
+       /* $query = $conn->query($sql);
         if($query->num_rows > 0){
             tabela("abre");
             foreach ($fields as $field) {
@@ -301,7 +329,7 @@
             }
             echo "</thead><tbody>";
             while($data = $query->fetch_array()) {
-                $id_paciente =  $data['id_paciente'];
+                $id =  $data['id_'.$tabela];
                 echo("<tr>");
                 foreach ($fields as $field) {
                     if($field == 'editar'){
@@ -320,116 +348,55 @@
             }
             tabela("fecha");
         }
+       */
+        tabela('paciente',$conn, $sql, $fields);
     }
     function select_prontuario(){
         $conn = conecta_bd();
         $sql ="SELECT quarto, f.nome as medico,paciente.nome as paciente, status_saude FROM prontuario p,quarto, paciente,funcionario f,status_saude WHERE fk_quarto = id_quarto AND f.fk_usuario = p.fk_usuario AND fk_paciente = id_paciente AND fk_status_saude = id_status_saude";
         $fields = ['quarto','medico','paciente','status_saude'];
-        $query = $conn->query($sql);
-        if($query->num_rows > 0){
-            echo $query->num_rows . "<br>";
-            echo "<table>";
-            foreach ($fields as $field) {
-                echo("<th>" . $field ."</th>");
-            }
-            while($data = $query->fetch_array()) {
-                echo("<tr>");
-                foreach ($fields as $field) {
-                    echo("<th>" . $data[$field] . "</th>");
-                }
-                echo("</tr>");
-            }
-            echo "</table>";
-        }
+        tabela('prontuario',$conn, $sql, $fields);
     }
     function select_quarto(){ //Para as tabelas Admin[status_*, tipo_*]
         $conn = conecta_bd();
         $sql ="SELECT quarto,tipo_quarto tipo,status_quarto status FROM quarto, tipo_quarto, status_quarto WHERE fk_tipo_quarto = id_tipo_quarto AND fk_status_quarto = id_status_quarto";
         $fields = ['quarto','tipo' ,'status'];
-        $query = $conn->query($sql);
-        if($query->num_rows > 0){
-            echo $query->num_rows . "<br>";
-            echo "<table>";
-            foreach ($fields as $field) {
-                echo("<th>" . $field ."</th>");
-            }
-            while($data = $query->fetch_array()) {
-                echo("<tr>");
-                foreach ($fields as $field) {
-                    echo("<th>" . $data[$field] ."</th>");
-                }
-                echo("</tr>");
-            }
-            echo "</table>";
-        }
+        tabela('quart',$conn, $sql, $fields);
     }
     function select_ponto(){ //Para as tabelas Admin[status_*, tipo_*]
         $conn = conecta_bd();
-        $sql ="SELECT nome,data_hora_entrada entrada, data_hora_saida saida, horas_trabalhadas FROM ponto, funcionario";
-        $fields = ['nome','entrada','saida','horas_trabalhadas','editar','excluir'];
-        $query = $conn->query($sql);
-        if($query->num_rows > 0){
-            echo $query->num_rows . "<br>";
-            echo "<table>";
-            foreach ($fields as $field) {
-                echo("<th>" . $field ."</th>");
-            }
-            while($data = $query->fetch_array()) {
-                echo("<tr>");
-                foreach ($fields as $field) {
-                    echo("<th>" . $data[$field] ."</th>");
-                }
-                echo("</tr>");
-            }
-            echo "</table>";
-        }
+        $sql ="SELECT * FROM ponto, funcionario";
+        $fields = ['nome','data_hora_entrada','data_hora_saida','horas_trabalhadas','editar','excluir'];
+        tabela('ponto',$conn, $sql, $fields);
     }
     function select_funcionario(){ //Para as tabelas Admin[status_*, tipo_*]
         $conn = conecta_bd();
         $sql ="select nome,login, tipo_funcionario as cargo,cpf,endereço,email,status_usuario as status from funcionario, usuario, status_usuario, tipo_funcionario"
             . "WHERE fk_usuario = id_usuario AND fk_status_usuario = id_status_usuario AND fk_tipo_funcionario = id_tipo_funcionario";
-        $fields = ['nome','login','cargo','cpf','endereço','email','status'];
-        $query = $conn->query($sql);
-        if($query->num_rows > 0){
-            echo $query->num_rows . "<br>";
-            echo "<table>";
-            foreach ($fields as $field) {
-                echo("<th>" . $field ."</th>");
-            }
-            while($data = $query->fetch_array()) {
-                echo("<tr>");
-                foreach ($fields as $field) {
-                    echo("<th>" . $data[$field] ."</th>");
-                }
-                echo("</tr>");
-            }
-            echo "</table>";
-        }
+        $fields = ['nome','login','cargo','cpf','endereço','email','status','editar','excluir'];
+        tabela('funcionario',$conn, $sql, $fields);
     }
     function select_generico($tabela){ //Para as tabelas Admin[status_*, tipo_*]
         $conn = conecta_bd();
         $sql ="select * from $tabela";
-        $fields = ['id_'.$tabela, $tabela];
-        $query = $conn->query($sql);
-        if($query->num_rows > 0){
-            echo $query->num_rows . "<br>";
-            echo "<table>";
-            foreach ($fields as $field) {
-                echo("<th>" . $field ."</th>");
-            }
-            while($data = $query->fetch_array()) {
-                echo("<tr>");
-                foreach ($fields as $field) {
-                    echo("<th>" . $data[$field] ."</th>");
-                }
-                echo("</tr>");
-            }
-            echo "</table>";
-        }
+        $fields = ['id_'.$tabela, $tabela,'editar','excluir'];
+        tabela($tabela,$conn, $sql, $fields);
     }
     //Update...
-    function update_ponto($id){
-        echo "id: ".$id;
+    function editar($tabela,$id){
+        $conn = conecta_bd();
+        if($tabela == 'funcionario'){
+            $sql = "SELECT * FROM $tabela WHERE fk_usuario = $id";
+        }else{
+            $sql = "SELECT * FROM $tabela WHERE id_$tabela = $id";
+        }
+        $query = $conn->query($sql);
+        $data = $query->fetch_array();
+        foreach($data as $da){
+            echo $da;
+        }
+    }
+    function auto_update_ponto($id){
         $conn = conecta_bd();
         $sql =  "UPDATE ponto ";
         $sql .= "SET data_hora_saida = NOW(),horas_trabalhadas = TIMEDIFF(NOW(),data_hora_entrada) ";
@@ -443,6 +410,25 @@
     }
 
     //Delete...
+    function deletar($tabela,$id){
+        $conn = conecta_bd();
+        if($tabela=='funcinario'){
+            $sql =  "DELETE funcionario WHERE fk_usuario = $id";
+            $conn->query($sql);
+            $conn = conecta_bd();
+            $sql =  "DELETE usuario WHERE id_usuario = $id";
+        }else{
+            $sql =  "DELETE $tabela WHERE id_$tabela = $id";
+        }
+
+        if($conn->query($sql)){
+            echo "Feito!";
+        }else{
+            echo "Deu ruim!";}
+    }
+    function delete_prontuario(){
+
+    }
 
 
 ?>

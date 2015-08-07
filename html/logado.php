@@ -30,11 +30,11 @@
 
 
 <?php
-    include "b_funcoes.php";
+    include_once "b_funcoes.php";
     carraga_menu($_SESSION['tipo']);
 ?>
 
-<iframe class='formula' src='form_quarto.php' name='iframe'></iframe>
+<iframe class='formula' src='in.php?op=ver&entidade=ponto' name='iframe'></iframe>
 
 
 <footer id='rodape'>

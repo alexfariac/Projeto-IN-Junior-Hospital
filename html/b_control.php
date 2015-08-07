@@ -1,7 +1,7 @@
 <?php
     session_start();
     include 'b_funcoes.php';
-    if($_REQUEST['op']=='valida'){
+    if($_REQUEST['op']=='loga'){
         $usuario = $_POST['login'];
         $senha = $_POST['senha'];
         //$senha = crypt($_POST['senha']);
@@ -20,13 +20,18 @@
             case 'ponto':
                 echo "ponto:".$_SESSION['ponto'];
                 if ($_SESSION['ponto'] == 'novo') {
-                    insert_ponto($_SESSION['user']);
+                    auto_insert_ponto($_SESSION['user']);
                 } else {
-                    update_ponto($_SESSION['ponto']);
+                    auto_update_ponto($_SESSION['ponto']);
                 }
                 break;
-            case 'editPac':
-                echo "EDIT!";
+            case 'edit':
+                editar($_REQUEST['entidade'],$_REQUEST['id']);
+                break;
+            case 'excl':
+                deletar($_REQUEST['entidade'],$_REQUEST['id']);
+                break;
+
         }
     }
     header("Location:home.php");

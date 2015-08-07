@@ -13,8 +13,8 @@
             <li class='dropdown'>
                 <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Ponto</font><b class='caret'></b></a>
                 <ul class='dropdown-menu'>
-                    <li><a href='form_ponto.php?op=criar' target='iframe'>Criar</a></li>
-                    <li><a href='form_ponto.php?op=ver' target='iframe'>Visualizar</a></li>
+                    <li><a href='in.php?op=criar&entidade=ponto' target='iframe'>Criar</a></li>
+                    <li><a href='in.php?op=ver&entidade=ponto' target='iframe'>Visualizar</a></li>
                 </ul>
             </li>
         </ul><!--Ponto-->
@@ -22,8 +22,8 @@
             <li class='dropdown'>
                 <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Paciente</font><b class='caret'></b></a>
                 <ul class='dropdown-menu'>
-                    <li><a href='form_paciente.php?op=criar' target='iframe'>Criar</a></li>
-                    <li><a href='form_paciente.php?op=ver' target='iframe'>Visualizar</a></li>
+                    <li><a href='in.php?op=criar&entidade=paciente' target='iframe'>Criar</a></li>
+                    <li><a href='in.php?op=ver&entidade=paciente' target='iframe'>Visualizar</a></li>
                 </ul>
             </li>
         </ul><!--Paciente-->
@@ -31,8 +31,8 @@
             <li class='dropdown'>
                 <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Prontuario</font><b class='caret'></b></a>
                 <ul class='dropdown-menu'>
-                    <li><a href='form_prontuario.php?op=criar' target='iframe'>Criar</a></li>
-                    <li><a href='form_prontuario.php?op=ver' target='iframe'>Visualizar</a></li>
+                    <li><a href='in.php?op=criar&entidade=prontuario' target='iframe'>Criar</a></li>
+                    <li><a href='in.php?op=ver&entidade=prontuario' target='iframe'>Visualizar</a></li>
                 </ul>
             </li>
         </ul><!--Prontuario-->
@@ -40,8 +40,8 @@
             <li class='dropdown'>
                 <a href='#' class='dropdown-toggle' data-toggle='dropdown'><font>Quarto</font><b class='caret'></b></a>
                 <ul class='dropdown-menu'>
-                    <li><a href='form_quarto.php?op=criar' target='iframe'>Criar</a></li>
-                    <li><a href='form_quarto.php?op=ver' target='iframe'>Visualizar</a></li>
+                    <li><a href='in.php?op=criar&entidade=quarto' target='iframe'>Criar</a></li>
+                    <li><a href='in.php?op=ver&entidade=quarto' target='iframe'>Visualizar</a></li>
                 </ul>
             </li>
         </ul><!--Quarto-->
@@ -53,8 +53,8 @@
                         <li class='dropdown'>
                             <a  class='dropdown-toggle' data-toggle='dropdown'><font>Tipo Quarto</font><b class='caret'></b></a>
                             <ul class='dropdown-menu'>
-                                <li><a href='form_generico.php?op=criar&gn=tipo_quarto' target='iframe'>Criar</a></li>
-                                <li><a href='form_generico.php?op=ver&gn=tipo_quarto' target='iframe'>Visualizar</a></li>
+                                <li><a href='in.php?op=criar&gn=tipo_quarto' target='iframe'>Criar</a></li>
+                                <li><a href='in.php?op=ver&gn=tipo_quarto' target='iframe'>Visualizar</a></li>
                             </ul>
                         </li>
                     </ul><!--Tipo Quarto-->
@@ -62,8 +62,8 @@
                         <li class='dropdown'>
                             <a  class='dropdown-toggle' data-toggle='dropdown'><font>Status Quarto</font><b class='caret'></b></a>
                             <ul class='dropdown-menu'>
-                                <li><a href='form_generico.php?op=criar&gn=status_quarto' target='iframe'>Criar</a></li>
-                                <li><a href='form_generico.php?op=ver&gn=status_quarto' target='iframe'>Visualizar</a></li>
+                                <li><a href='in.php?op=criar&gn=status_quarto' target='iframe'>Criar</a></li>
+                                <li><a href='in.php?op=ver&gn=status_quarto' target='iframe'>Visualizar</a></li>
                             </ul>
                         </li>
                     </ul><!--Status Quarto-->
@@ -71,8 +71,8 @@
                         <li class='dropdown'>
                             <a  class='dropdown-toggle' data-toggle='dropdown'><font>Tipo Funcionario</font><b class='caret'></b></a>
                             <ul class='dropdown-menu'>
-                                <li><a href='form_generico.php?op=criar&gn=tipo_funcionario' target='iframe'>Criar</a></li>
-                                <li><a href='form_generico.php?op=ver&gn=tipo_funcionario' target='iframe'>Visualizar</a></li>
+                                <li><a href='in.php?op=criar&gn=tipo_funcionario' target='iframe'>Criar</a></li>
+                                <li><a href='in.php?op=ver&gn=tipo_funcionario' target='iframe'>Visualizar</a></li>
                             </ul>
                         </li>
                     </ul><!--Tipo Funcionario-->
@@ -80,8 +80,8 @@
                         <li class='dropdown'>
                             <a  class='dropdown-toggle' data-toggle='dropdown'><font>Status Usuario</font><b class='caret'></b></a>
                             <ul class='dropdown-menu'>
-                                <li><a href='form_generico.php?op=criar&gn=status_funcionario' target='iframe'>Criar</a></li>
-                                <li><a href='form_generico.php?op=ver&gn=status_funcionario' target='iframe'>Visualizar</a></li>
+                                <li><a href='in.php?op=criar&gn=status_funcionario' target='iframe'>Criar</a></li>
+                                <li><a href='in.php?op=ver&gn=status_funcionario' target='iframe'>Visualizar</a></li>
                             </ul>
                         </li>
                     </ul><!--Status Usuario-->
@@ -89,8 +89,8 @@
                         <li class='dropdown'>
                             <a  class='dropdown-toggle' data-toggle='dropdown'><font>Status Saude</font><b class='caret'></b></a>
                             <ul class='dropdown-menu'>
-                                <li><a href='form_generico.php?op=criar&gn=status_saude' target='iframe'>Criar</a></li>
-                                <li><a href='form_generico.php?op=ver&gn=status_saude' target='iframe'>Visualizar</a></li>
+                                <li><a href='in.php?op=criar&gn=status_saude' target='iframe'>Criar</a></li>
+                                <li><a href='in.php?op=ver&gn=status_saude' target='iframe'>Visualizar</a></li>
                             </ul>
                         </li>
                     </ul><!--Status Saude-->
@@ -98,20 +98,20 @@
                         <li class='dropdown'>
                             <a  class='dropdown-toggle' data-toggle='dropdown'><font>Funcionario</font><b class='caret'></b></a>
                             <ul class='dropdown-menu'>
-                                <li><a href='form_funcionario.php?op=criar' target='iframe'>Criar</a></li>
-                                <li><a href='form_funcionario.php?op=ver' target='iframe'>Visualizar</a></li>
+                                <li><a href='in.php?op=criar&entidade=funcionario' target='iframe'>Criar</a></li>
+                                <li><a href='in.php?op=ver&entidade=funcionario' target='iframe'>Visualizar</a></li>
                             </ul>
                         </li>
                     </ul><!--Funcionario-->
-                    <ul class='nav navbar-nav navbar-left'>
+                   <!--<ul class='nav navbar-nav navbar-left'>
                         <li class='dropdown'>
                             <a  class='dropdown-toggle' data-toggle='dropdown'><font>Ponto</font><b class='caret'></b></a>
                             <ul class='dropdown-menu'>
-                                <li><a href='form_ponto.php?op=criar' target='iframe'>Criar</a></li>
-                                <li><a href='form_ponto.php?op=ver' target='iframe'>Visualizar</a></li>
+                                <li><a href='in.php?op=criar' target='iframe'>Criar</a></li>
+                                <li><a href='in.php?op=ver' target='iframe'>Visualizar</a></li>
                             </ul>
                         </li>
-                    </ul><!--Ponto-->
+                    </ul>--><!--Ponto-->
                 </ul>
             </li>
         </ul><!--Admin-->

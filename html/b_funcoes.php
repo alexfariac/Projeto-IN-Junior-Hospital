@@ -21,6 +21,9 @@
             $_SESSION['user'] = $res_id_usuario;
             $_SESSION['tipo'] = $dados['fk_tipo_funcionario'];
             $_SESSION['nome'] = $dados['nome'];
+            echo "user: ".$_SESSION['user']."<br>";
+            echo "tipo: ".$_SESSION['tipo']."<br>";
+            echo "nome: ".$_SESSION['nome']."<br>";
             $conn = conecta_bd();
             $sql = "select * from ponto where fk_usuario='$res_id_usuario' and ISNULL(data_hora_saida)";
             $query = $conn->query($sql);
@@ -41,7 +44,9 @@
             }
         }
         else{
-            echo "Nao foi possivel autenticar...";
+            echo "<SCRIPT LANGUAGE='JavaScript' TYPE='text/javascript'>
+                    alert ('Esta eh uma caixa de dialogo ALERT do JavaScript!')
+                        </SCRIPT>";
         }
         mysqli_close($conn);
 	}
@@ -337,14 +342,20 @@
         }
     }
     function select_paciente(){
+        if(!isset($_SESSION)) {session_start();}
         $conn = conecta_bd();
         $sql ="SELECT * FROM paciente";
         if(isset($_SESSION['tipo'])) {
             if ($_SESSION['tipo'] == 2) {
-                $sql .= "WHERE fk_usuario =" . $_SESSION["user"];
+                $sql .= ",prontuario WHERE fk_paciente = id_paciente AND fk_usuario =" . $_SESSION["user"];
+                $fields = ['nome','cpf'];
+                tabela('paciente',$conn, $sql, $fields);
+            }else{
+            $fields = ['nome','cpf','editar','excluir'];
+                tabela('paciente',$conn, $sql, $fields);
             }
         }
-        $fields = ['nome','cpf','editar','excluir'];
+
        /* $query = $conn->query($sql);
         if($query->num_rows > 0){
             tabela("abre");
@@ -373,15 +384,25 @@
             tabela("fecha");
         }
        */
-        tabela('paciente',$conn, $sql, $fields);
+
     }
     function select_prontuario(){
+        if(!isset($_SESSION)) {session_start();}
         $conn = conecta_bd();
         $sql ="SELECT id_prontuario, quarto, f.nome as medico,paciente.nome as paciente, status_saude "
                 ."FROM prontuario p,quarto, paciente,funcionario f,status_saude "
                 ."WHERE fk_quarto = id_quarto AND f.fk_usuario = p.fk_usuario AND fk_paciente = id_paciente AND fk_status_saude = id_status_saude";
-        $fields = ['quarto','medico','paciente','status_saude','editar','excluir'];
-        tabela('prontuario',$conn, $sql, $fields);
+        if(isset($_SESSION['tipo'])) {
+            if ($_SESSION['tipo'] == 2) {
+                $sql .= " AND p.fk_usuario =" . $_SESSION["user"];
+                $fields = ['quarto','medico','paciente','status_saude','editar'];
+                tabela('prontuario',$conn, $sql, $fields);
+            }else{
+                $fields = ['quarto','medico','paciente','status_saude','editar','excluir'];
+                tabela('prontuario',$conn, $sql, $fields);
+            }
+        }
+
     }
     function select_quarto(){ //Para as tabelas Admin[status_*, tipo_*]
         $conn = conecta_bd();
@@ -390,10 +411,19 @@
         tabela('quarto',$conn, $sql, $fields);
     }
     function select_ponto(){ //Para as tabelas Admin[status_*, tipo_*]
+        if(!isset($_SESSION)) {session_start();}
         $conn = conecta_bd();
         $sql ="SELECT * FROM ponto, funcionario WHERE ponto.fk_usuario = funcionario.fk_usuario";
-        $fields = ['nome','data_hora_entrada','data_hora_saida','horas_trabalhadas','editar','excluir'];
-        tabela('ponto',$conn, $sql, $fields);
+        if(isset($_SESSION['tipo'])) {
+            if ($_SESSION['tipo'] == 2) {
+                $sql .= " AND ponto.fk_usuario =" . $_SESSION["user"];
+                $fields = ['nome','data_hora_entrada','data_hora_saida','horas_trabalhadas'];
+                tabela('ponto',$conn, $sql, $fields);
+            }else{
+                $fields = ['nome','data_hora_entrada','data_hora_saida','horas_trabalhadas','editar','excluir'];
+                tabela('ponto',$conn, $sql, $fields);
+            }
+        }
     }
     function select_funcionario(){ //Para as tabelas Admin[status_*, tipo_*]
         $conn = conecta_bd();
@@ -437,10 +467,12 @@
     */
     function auto_update_ponto(){
         $conn = conecta_bd();
-        $sql = "select id_ponto from ponto where fk_usuario='1' and ISNULL(data_hora_saida)";
+        $sql = "select id_ponto from ponto where fk_usuario= ".$_SESSION['user'] ." and ISNULL(data_hora_saida)";
+        echo $sql."<br>";
         $query = $conn->query($sql);
         $dados = $query->fetch_array();
         $id_ponto = $dados['id_ponto'];
+        echo $sql."<br>";
         echo $id_ponto;
 
         $conn = conecta_bd();

@@ -1,8 +1,9 @@
 <?php
-    //session_start();
-    //if(!isset($_SESSION['user'])){
-    //    desloga();
-    //}
+    if(!isset($_SESSION)) {session_start();}
+    if(!isset($_SESSION['user'])){
+        include_once 'b_funcoes.php';
+        desloga();
+    }
 ?>
 <html>
 <head>
@@ -24,7 +25,7 @@
     <form id='pheader' method='POST' action='b_control.php?op=ponto' enctype='multipart/form-data'>
         <button  type='submit' class='log'>
             <img id='logado' src='<?php
-                                        if($_SESSION['ponto']=='novo'){
+                                        if(isset($_SESSION['ponto'])&&$_SESSION['ponto']=='novo'){
                                             echo 'img/botaoIniciarPonto.png';
                                         }else{
                                             echo 'img/botaoFecharPonto.png';

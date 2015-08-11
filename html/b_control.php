@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    if(!isset($_SESSION)) {session_start();}
     include 'b_funcoes.php';
     if($_REQUEST['op']=='loga'){
         $usuario = $_POST['login'];
@@ -10,7 +10,6 @@
             echo "Usuario e senha devem estar preenchidos!";
         } else {
             loga($usuario, $senha);
-            header("Location:home.php");
         }
     }else {
         switch ($_REQUEST['op']) {
@@ -104,4 +103,4 @@
 
         }
     }
-    //header("Location:home.php");
+    header("Location:home.php");

@@ -73,11 +73,11 @@
                             -->
                             <span class="id_campo">Data e Hora início:</span>
 							<label class="sr-only" id="campo_senha">Data e Hora início:</label>
-							<input type="datetime" class="form-control" id="medpront" placeholder="Data e Hora" required="" name="entrada" <?php if(isset($_REQUEST['editar'])){echo "value=".$ponto['data_hora_entrada'];} ?> >
+							<input type="date" class="form-control" id="medpront" placeholder="Data e Hora" required="" name="entrada" <?php if(isset($_REQUEST['editar'])){echo "value=".$ponto['data_hora_entrada'];} ?> >
 							
 							<span class="id_campo">Data e Hora fim:</span>
 							<label class="sr-only" id="campo_senha">Data e Hora fim:</label>
-							<input type="datetime" class="form-control" id="pacpront" placeholder="Data e Hora" name="saida" <?php if(isset($_REQUEST['editar'])){echo "value=".$ponto['data_hora_saida'];} ?> >
+							<input type="date" class="form-control" id="pacpront" placeholder="Data e Hora" name="saida" <?php if(isset($_REQUEST['editar'])){echo "value=".$ponto['data_hora_saida'];} ?> >
 							
 							<div class="centralizar">
 							<button  type="submit" class="log">

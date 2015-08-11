@@ -60,17 +60,17 @@
                                 }
                                 ?>
                             </select>
-                            <!--
+                            <!--Tentativa de fazer validacao com JS...
                             <div class="form-group">
                                 <label class="col-xs-3 control-label">Data e Hora Inicio</label>
                                 <div class="col-xs-6 dateContainer">
                                     <div class="input-group date" id="datetimePicker">
-                                        <input type="text" class="form-control" placeholder="MM/DD/YYYY h:m A" required="" name="entrada" <?php if(isset($_REQUEST['editar'])){echo "value=".$ponto['data_hora_entrada'];} ?> />
+                                        <input type="text" class="form-control" placeholder="MM/DD/YYYY h:m A" required="" name="entrada" <?php //if(isset($_REQUEST['editar'])){echo "value=".$ponto['data_hora_entrada'];} ?> />
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                                     </div>
                                 </div>
                             </div>
-                            -->Tentativa de fazer validacao com JS...
+                            -->
                             <span class="id_campo">Data e Hora início:</span>
 							<label class="sr-only" id="campo_senha">Data e Hora início:</label>
 							<input type="datetime" class="form-control" id="medpront" placeholder="Data e Hora" required="" name="entrada" <?php if(isset($_REQUEST['editar'])){echo "value=".$ponto['data_hora_entrada'];} ?> >

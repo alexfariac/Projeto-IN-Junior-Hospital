@@ -3,7 +3,7 @@
     //Validacao de usuario...
 	function loga($usuario,$senha){
         $conn = conecta_bd();
-		$sql = "SELECT id_usuario, fk_status_usuario, senha FROM usuario WHERE login = ? AND senha = ?";
+		$sql = "SELECT id_usuario, fk_status_usuario, senha FROM usuario WHERE login = ? AND senha = ? AND fk_status_usuario = 1";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('ss',$usuario,$senha);
         $stmt->execute();
@@ -399,7 +399,7 @@
         $conn = conecta_bd();
         $sql ="SELECT id_usuario, nome,login, tipo_funcionario cargo,cpf,email,status_usuario status FROM funcionario, usuario, status_usuario, tipo_funcionario "
             . "WHERE fk_usuario = id_usuario AND fk_status_usuario = id_status_usuario AND fk_tipo_funcionario = id_tipo_funcionario";
-        $fields = ['nome','login','cargo','cpf','email','status','editar','excluir'];
+        $fields = ['nome','login','cargo','cpf','email','status','editar'];
         tabela('usuario',$conn, $sql, $fields);
     }
     function select_generico($tabela){ //Para as tabelas Admin[status_*, tipo_*]
@@ -576,15 +576,43 @@
     //Delete...
     function deletar($tabela,$id){
         $conn = conecta_bd();
-        if($tabela=='funcinario'){
-            $sql =  "DELETE funcionario WHERE fk_usuario = $id";
-            $conn->query($sql);
-            $conn = conecta_bd();
-            $sql =  "DELETE usuario WHERE id_usuario = $id";
-        }else{
-            $sql =  "DELETE $tabela WHERE id_$tabela = $id";
+        //echo $tabela;
+        switch($tabela){
+            case 'paciente':
+                $sql = "SELECT * FROM prontuario WHERE fk_paciente = $id";
+                break;
+            case 'quarto':
+                $sql = "SELECT * FROM prontuario WHERE fk_quarto = $id";
+                break;
+            case 'tipo_quarto':
+                $sql = "SELECT * FROM quarto WHERE fk_tipo_quarto = $id";
+                break;
+            case 'status_quarto':
+                $sql = "SELECT * FROM quarto WHERE fk_status_quarto = $id";
+                break;
+            case 'tipo_funcionario':
+                $sql = "SELECT * FROM funcionario WHERE fk_tipo_funcionario = $id";
+                break;
+            case 'status_saude':
+                $sql = "SELECT * FROM prontuario WHERE fk_status_saude = $id";
+                break;
+            case 'status_usuario':
+                $sql = "SELECT * FROM usuario WHERE fk_status_usuario = $id";
+                break;
         }
-
+        $query = $conn->query($sql);
+        $usado = $query->fetch_row();
+        if($tabela=='funcinario'){
+            //$sql =  "DELETE funcionario WHERE fk_usuario = $id";
+            //$conn->query($sql);
+            //$conn = conecta_bd();
+            //$sql =  "DELETE usuario WHERE id_usuario = $id";
+        }elseif($usado==0){
+            $sql =  "DELETE FROM $tabela WHERE id_$tabela = $id";
+        }else{
+            echo "Nao pode ser deletado, pois outra tabela esta usando esta informacao";
+        }
+        //echo $sql;
         if($conn->query($sql)){
             echo "Feito!";
         }else{

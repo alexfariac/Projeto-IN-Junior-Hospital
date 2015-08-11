@@ -10,6 +10,7 @@
             echo "Usuario e senha devem estar preenchidos!";
         } else {
             loga($usuario, $senha);
+            header("Location:home.php");
         }
     }else {
         switch ($_REQUEST['op']) {
@@ -25,6 +26,7 @@
                         insert_paciente($_REQUEST['nome'], $_REQUEST['cpf']);
                         break;
                     case 'funcionario':
+                    case 'usuario':
                         insert_funcionario($_REQUEST['login'], $_REQUEST['senha'], $_REQUEST['tipo_funcionario'], $_REQUEST['nome'], $_REQUEST['cpf'], $_REQUEST['email']);
                         break;
                     case 'ponto':
@@ -53,8 +55,21 @@
                 break;
             case 'edit':
                 //editar($_REQUEST['entidade'],$_REQUEST['id']);
-                header("Location:form_".$_REQUEST['entidade'] .".php?editar=".$_REQUEST['id']);
-                exit;
+                switch ($_REQUEST['entidade']){
+                    case 'tipo_funcionario':
+                    case 'tipo_quarto':
+                    case 'status_quarto':
+                    case 'status_usuario':
+                    case 'status_saude':
+                        header("Location:form_generico.php?editar=".$_REQUEST['id']);
+                        exit;
+                    case 'usuario':
+                        header("Location:form_funcionario.php?editar=".$_REQUEST['id']);
+                        exit;
+                    default:
+                        header("Location:form_".$_REQUEST['entidade'] .".php?editar=".$_REQUEST['id']);
+                        exit;
+                }
             case 'editado':
                 switch ($_REQUEST['entidade']) {
                     case 'quarto':
@@ -64,6 +79,7 @@
                         update_paciente($_REQUEST['id'],$_REQUEST['nome'], $_REQUEST['cpf']);
                         break;
                     case 'funcionario':
+                    case 'usuario':
                         update_funcionario($_REQUEST['id'],$_REQUEST['login'], $_REQUEST['senha'], $_REQUEST['tipo_funcionario'], $_REQUEST['nome'], $_REQUEST['cpf'], $_REQUEST['email']);
                         break;
                     case 'ponto':

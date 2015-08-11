@@ -17,16 +17,25 @@
                         <?php
                         if(isset($_REQUEST['editar'])){
                             $op = 'editado';
+                            include_once 'b_config.php';
+                            $conn = conecta_bd();
+                            $sql = "SELECT * FROM ".$_SESSION['gn'];
+                            $query = $conn->query($sql);
+                            $generico = $query->fetch_array();
                         }else{
                             $op = 'cria';
                         }
                         ?>
-                        <form class="form-signin" id="formgenerico" method="POST" action="b_control.php?op=<?php echo $op ."&entidade=".$_SESSION['gn'] ?>" enctype="multipart/form-data">
+                        <form class="form-signin" id="formgenerico" method="POST" action="b_control.php?op=<?php echo $op ."&entidade=".$_SESSION['gn'] ;
+                        if(isset($_REQUEST['editar'])){echo "&id=".$_REQUEST['editar'];}
+                        ?>" enctype="multipart/form-data">
 							<?php
 							$gn = $_SESSION['gn'];
 							echo "<span class='id_campo'> $gn </span>";
 							echo "<label class='sr-only' id='campo_senha'>$gn</label>";
-							echo "<input class='form-control' placeholder='$gn' required='' name='$gn'>";
+							echo "<input class='form-control' placeholder='$gn' required='' name='$gn'";
+                            if(isset($_REQUEST['editar'])){echo "value=".$generico[$gn];}
+                            echo ">";
 							?>
 							<button  type="submit"	 class="log">
 								<img  id="botao" src="img/botaoCadastrar.png">

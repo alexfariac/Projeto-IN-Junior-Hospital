@@ -17,17 +17,24 @@
                         <?php
                         if(isset($_REQUEST['editar'])){
                             $op = 'editado';
+                            include_once 'b_config.php';
+                            $conn = conecta_bd();
+                            $sql = "SELECT * FROM paciente WHERE id_paciente = ".$_REQUEST['editar'];
+                            $query = $conn->query($sql);
+                            $paciente = $query->fetch_array();
                         }else{
                             $op = 'cria';
                         }
                         ?>
-                        <form class="form-signin" id="formpaciente" method="POST" action="b_control.php?op=<?php echo $op ?>" enctype="multipart/form-data">
+                        <form class="form-signin" id="formpaciente" method="POST" action="b_control.php?op=<?php echo $op ."&entidade=paciente";
+                        if(isset($_REQUEST['editar'])){echo "&id=".$_REQUEST['editar'];}
+                        ?>" enctype="multipart/form-data">
 							<span class="id_campo">Nome:</span>
 							<label for="inputEmail" class="sr-only">Nome</label>
-							<input name="nome" id="inputEmail" class="form-control" placeholder="Nome" required="" autofocus="">
+							<input name="nome" id="inputEmail" class="form-control" placeholder="Nome" required="" autofocus="" <?php if(isset($_REQUEST['editar'])){echo "value=".$paciente['nome'];} ?>>
 							<span class="id_campo">CPF:</span>
 							<label class="sr-only" id="campo_senha">CPF</label>
-							<input name="cpf" id="inputPassword" class="form-control" placeholder="CPF" required="">
+							<input name="cpf" id="inputPassword" class="form-control" placeholder="CPF" required="" <?php if(isset($_REQUEST['editar'])){echo "value=".$paciente['cpf'];} ?>>
 							<button  type="submit"	 class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>

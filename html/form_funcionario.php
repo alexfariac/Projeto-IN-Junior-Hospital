@@ -18,24 +18,31 @@
 						<?php
 						if(isset($_REQUEST['editar'])){
 							$op = 'editado';
+                            include_once 'b_config.php';
+                            $conn = conecta_bd();
+                            $sql = "SELECT * FROM funcionario,usuario WHERE fk_usuario = id_usuario AND fk_usuario = ".$_REQUEST['editar'];
+                            $query = $conn->query($sql);
+                            $user = $query->fetch_array();
 						}else{
 							$op = 'cria';
 						}
 						?>
-						<form class="form-signin" id="formfuncionario" method="POST" action="b_control.php?op=<?php echo $op ."&entidade=funcionario" ?>" enctype="multipart/form-data">
+						<form class="form-signin" id="formfuncionario" method="POST" action="b_control.php?op=<?php echo $op ."&entidade=funcionario";
+                        if(isset($_REQUEST['editar'])){echo "&id=".$_REQUEST['editar'];}
+                        ?>" enctype="multipart/form-data">
 							
 							<span class="id_campo">Nome:</span>
 							<label class="sr-only" id="campo_senha">Nome</label>
-							<input class="form-control" id="nomefun" placeholder="Nome" required="" name="nome">
+							<input class="form-control" id="nomefun" placeholder="Nome" required="" name="nome" <?php if(isset($_REQUEST['editar'])){echo "value=".$user['nome'];} ?>>
 							
 							<span class="id_campo">CPF:</span>
 							<label class="sr-only" id="campo_senha">CPF</label>
-							<input class="form-control" id="cpffun" placeholder="CPF" required="" name="cpf">
+							<input class="form-control" id="cpffun" placeholder="CPF" required="" name="cpf" <?php if(isset($_REQUEST['editar'])){echo "value=".$user['cpf'];} ?>>
 
 
                             <span class="id_campo">Email:</span>
                             <label class="sr-only" id="campo_senha">Email</label>
-                            <input class="form-control" id="endfun" placeholder="Email" required="" name="email">
+                            <input class="form-control" id="endfun" placeholder="Email" required="" name="email" <?php if(isset($_REQUEST['editar'])){echo "value=".$user['email'];} ?>>
 
 
 							<span class="id_campo">Cargo:</span>
@@ -46,14 +53,18 @@
 									$sql = "select * from tipo_funcionario";
 									$query = $conn->query($sql);
 									while($dados = $query->fetch_array()){
-										echo "<option value=".$dados['id_tipo_funcionario'].">".$dados['tipo_funcionario']."</option>";
+										echo "<option value=".$dados['id_tipo_funcionario'];
+                                        if(isset($_REQUEST['editar'])){
+                                            if($dados['id_tipo_funcionario']==$user['fk_tipo_funcionario']){
+                                                echo " selected='selected'";}}
+                                        echo ">".$dados['tipo_funcionario']."</option>";
 									}
 								?>
 							</select>
 							
 							<span class="id_campo">Login:</span>
 							<label class="sr-only" id="campo_senha">Login</label>
-							<input class="form-control" id="logfun" placeholder="Login" required="" name="login">
+							<input class="form-control" id="logfun" placeholder="Login" required="" name="login" <?php if(isset($_REQUEST['editar'])){echo "value=".$user['login'];} ?>>
 							
 							<span class="id_campo">Senha:</span>
 							<label class="sr-only" id="campo_senha">Senha</label>

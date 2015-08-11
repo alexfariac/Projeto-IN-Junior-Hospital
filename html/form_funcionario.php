@@ -15,37 +15,52 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4" id="estilo">
 					<div class="borda">
-						<form class="form-signin">
+						<?php
+						if(isset($_REQUEST['editar'])){
+							$op = 'editado';
+						}else{
+							$op = 'cria';
+						}
+						?>
+						<form class="form-signin" id="formfuncionario" method="POST" action="b_control.php?op=<?php echo $op ."&entidade=funcionario" ?>" enctype="multipart/form-data">
 							
 							<span class="id_campo">Nome:</span>
 							<label class="sr-only" id="campo_senha">Nome</label>
-							<input class="form-control" id="nomefun" placeholder="Nome" required="">
+							<input class="form-control" id="nomefun" placeholder="Nome" required="" name="nome">
 							
 							<span class="id_campo">CPF:</span>
 							<label class="sr-only" id="campo_senha">CPF</label>
-							<input class="form-control" id="cpffun" placeholder="CPF" required="">
-							
-							<span class="id_campo">Endereço:</span>
-							<label class="sr-only" id="campo_senha">Endereço</label>
-							<input class="form-control" id="endfun" placeholder="Endereço" required="">
-							
+							<input class="form-control" id="cpffun" placeholder="CPF" required="" name="cpf">
+
+
+                            <span class="id_campo">Email:</span>
+                            <label class="sr-only" id="campo_senha">Email</label>
+                            <input class="form-control" id="endfun" placeholder="Email" required="" name="email">
+
+
 							<span class="id_campo">Cargo:</span>
-							<select id="listbox">
-								<option value="Recepcionista">Recepcionista</option>
-								<option value="Médico">Médico</option>
-								<option value="Administrador">Administrador</option>
+							<select id="listbox" name="tipo_funcionario">
+								<?php
+									include_once 'b_config.php';
+									$conn = conecta_bd();
+									$sql = "select * from tipo_funcionario";
+									$query = $conn->query($sql);
+									while($dados = $query->fetch_array()){
+										echo "<option value=".$dados['id_tipo_funcionario'].">".$dados['tipo_funcionario']."</option>";
+									}
+								?>
 							</select>
 							
 							<span class="id_campo">Login:</span>
 							<label class="sr-only" id="campo_senha">Login</label>
-							<input class="form-control" id="logfun" placeholder="Login" required="">
+							<input class="form-control" id="logfun" placeholder="Login" required="" name="login">
 							
 							<span class="id_campo">Senha:</span>
 							<label class="sr-only" id="campo_senha">Senha</label>
-							<input type="password" id="inputPassword" class="form-control" placeholder="Senha" required="">
+							<input type="password" id="inputPassword" class="form-control" placeholder="Senha" required="" name="senha">
 							
 							<div id="centralizar">
-							<button  type="button" class="log">
+							<button  type="submit" class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
 							</div>
@@ -54,9 +69,9 @@
 				</div>
 			</div>
 		</div>
-	</div>	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	</div>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	
 	<!--Script validacao js -->
 	<script src="js/validacaofuncionario.js"></script>

@@ -14,22 +14,38 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4" id="estilo">
 					<div class="borda">
-						<form class="form-signin">
-							
-							<span class="id_campo">Nome:</span>
-							<label class="sr-only" id="campo_senha">Nome</label>
-							<input class="form-control" id="qtpront" placeholder="Nome" required="">
-							
+                        <?php
+                        if(isset($_REQUEST['editar'])){
+                            $op = 'editado';
+                        }else{
+                            $op = 'cria';
+                        }
+                        ?>
+                        <form class="form-signin" id="formponto" method="POST" action="b_control.php?op=<?php echo $op ."&entidade=ponto" ?>" enctype="multipart/form-data">
+
+                            <span class="id_campo">Nome:</span>
+                            <select id="listbox" name="nome">
+                                <?php
+                                include_once 'b_config.php';
+                                $conn = conecta_bd();
+                                $sql = "select * from funcionario";
+                                $query = $conn->query($sql);
+                                while($dados = $query->fetch_array()){
+                                    echo "<option value=".$dados['fk_usuario'].">".$dados['nome']."</option>";
+                                }
+                                ?>
+                            </select>
+
 							<span class="id_campo">Data e Hora início:</span>
 							<label class="sr-only" id="campo_senha">Data e Hora início:</label>
-							<input class="form-control" id="medpront" placeholder="Data e Hora" required="">
+							<input class="form-control" id="medpront" placeholder="Data e Hora" required="" name="entrada">
 							
 							<span class="id_campo">Data e Hora fim:</span>
 							<label class="sr-only" id="campo_senha">Data e Hora fim:</label>
-							<input class="form-control" id="pacpront" placeholder="Data e Hora" required="">
+							<input class="form-control" id="pacpront" placeholder="Data e Hora" required="" name="saida">
 							
 							<div class="centralizar">
-							<button  type="button" class="log">
+							<button  type="submit" class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
 							</div>
@@ -38,9 +54,9 @@
 				</div>
 			</div>
 		</div>
-	</div>	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	</div>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	
 	<!--Validacao JS -->
 	<script src="js/validacaoprontuario.js"></script>

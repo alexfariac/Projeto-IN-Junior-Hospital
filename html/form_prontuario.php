@@ -18,26 +18,81 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4" id="estilo">
 					<div class="borda">
-						<form class="form-signin">
-							
+                        <?php
+                            if(isset($_REQUEST['editar'])){
+                                $op = 'editado';
+                            }else{
+                                $op = 'cria';
+                            }
+                        ?>
+                        <form class="form-signin" id="formprontuario" method="POST" action="b_control.php?op=<?php echo $op ."&entidade=prontuario" ?>" enctype="multipart/form-data">
+
+
 							<span class="id_campo">Quarto:</span>
-							<label class="sr-only" id="campo_senha">Quarto</label>
-							<input class="form-control" id="qtpront" placeholder="Quarto" required="">
+                            <select id="listbox" name="quarto">
+                                <?php
+                                include_once 'b_config.php';
+                                $tabela = 'quarto';
+                                $conn = conecta_bd();
+                                $sql = "select * from $tabela";
+                                $query = $conn->query($sql);
+                                while($dados = $query->fetch_array()){
+                                    echo "<option value=".$dados['id_'.$tabela].">".$dados[$tabela]."</option>";
+                                }
+                                ?>
+                            </select>
 
 							<span class="id_campo">Médico:</span>
+                            <select id="listbox" name="medico">
+                                <?php
+                                $tabela = 'funcionario';
+                                $conn = conecta_bd();
+                                $sql = "select * from $tabela";
+                                $query = $conn->query($sql);
+                                while($dados = $query->fetch_array()){
+                                    echo "<option value=".$dados['fk_usuario'].">".$dados['nome']."</option>";
+                                }
+                                ?>
+                            </select>
+                            <span class="id_campo">Paciente:</span>
+                            <select id="listbox" name="paciente">
+                                <?php
+                                $tabela = 'paciente';
+                                $conn = conecta_bd();
+                                $sql = "select * from $tabela";
+                                $query = $conn->query($sql);
+                                while($dados = $query->fetch_array()){
+                                    echo "<option value=".$dados['id_'.$tabela].">".$dados['nome']."</option>";
+                                }
+                                ?>
+                            </select>
+                            <span class="id_campo">Status de Saúde:</span>
+                            <select id="listbox" name="status_saude">
+                                <?php
+                                $tabela = 'status_saude';
+                                $conn = conecta_bd();
+                                $sql = "select * from $tabela";
+                                $query = $conn->query($sql);
+                                while($dados = $query->fetch_array()){
+                                    echo "<option value=".$dados['id_'.$tabela].">".$dados[$tabela]."</option>";
+                                }
+                                ?>
+                            </select>
+							<!--
+							<span class="id_campo">Médico:</span>
 							<label class="sr-only" id="campo_senha">Médico</label>
-							<input type="text" class="form-control" id="medpront" placeholder="Medico" required="">
+							<input type="text" class="form-control" id="medpront" placeholder="Medico" required="" name="medico">
 							
 							<span class="id_campo">Paciente:</span>
 							<label class="sr-only" id="campo_senha">Paciente</label>
-							<input type="text" class="form-control" id="pacpront" placeholder="Paciente" >
+							<input type="text" class="form-control" id="pacpront" placeholder="Paciente" name="paciente">
 							
 							<span class="id_campo">Status de Saúde:</span>
 							<label class="sr-only" id="campo_senha">Status</label>
-							<input class="form-control" id="stpront" placeholder="Status" required="">
-							
+							<input class="form-control" id="stpront" placeholder="Status" required="" name="status_saude">
+							-->
 							<div id="centralizar">
-							<button  type="button" class="log">
+							<button  type="submit" class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
 							</div>

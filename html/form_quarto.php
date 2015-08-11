@@ -14,24 +14,33 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4" id="estilo">
 					<div class="borda">
-						<form class="form-signin">
+						<?php
+						if(isset($_REQUEST['editar'])){
+							$op = 'editado';
+						}else{
+							$op = 'cria';
+						}
+						?>
+						<form class="form-signin" id="formquarto" method="POST" action="b_control.php?op=<?php echo $op ."&entidade=quarto" ?>" enctype="multipart/form-data">
 							
 							<span class="id_campo">Número do Quarto:</span>
 							<label class="sr-only" id="campo_senha">Número</label>
-							<input class="form-control" id="nqt" placeholder="Número do Quarto" required="">
+							<input class="form-control" id="nqt" placeholder="Número do Quarto" required="" name="quarto">
 							
 							<span class="id_campo">Tipo:</span>
-							<select id="listbox">
-								<option value="Individual">Individual</option>
-								<option value="Coletivo">Coletivo</option>
-								
+							<select id="listbox" name="tipo_quarto">
+								<?php
+                                include_once 'b_config.php';
+                                $conn = conecta_bd();
+                                $sql = "select * from tipo_quarto";
+                                $query = $conn->query($sql);
+                                while($dados = $query->fetch_array()){
+                                    echo "<option value=".$dados['id_tipo_quarto'].">".$dados['tipo_quarto']."</option>";
+                                }
+                                ?>
 							</select>
-						<!--	<span class="id_campo">Tipo:</span>
-							<label class="sr-only" id="campo_senha">Tipo</label>
-							<input class="form-control" id="tqt" placeholder="Tipo" required="">
-						-->	
 							<div id="centralizar">
-							<button  type="button" class="log">
+							<button  type="submit" class="log">
 								<img id="botao" src="img/botaoCadastrar.png">
 							</button>
 							</div>
@@ -40,9 +49,9 @@
 				</div>
 			</div>
 		</div>
-	</div>	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	</div>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	
 	<!-- Validacao quarto-->
 	<script src="js/validacaoquarto.js"></script>

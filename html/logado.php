@@ -21,9 +21,15 @@
             <img id='logado' src='img/botaoSair.png'>
         </button>
     </form>
-	    <form id='pheader' method='POST' action='b_control.php?op=ponto' enctype='multipart/form-data'>
+    <form id='pheader' method='POST' action='b_control.php?op=ponto' enctype='multipart/form-data'>
         <button  type='submit' class='log'>
-            <img id='logado' src='img/botaoIniciarPonto.png'>
+            <img id='logado' src='<?php
+                                        if($_SESSION['ponto']=='novo'){
+                                            echo 'img/botaoIniciarPonto.png';
+                                        }else{
+                                            echo 'img/botaoFecharPonto.png';
+                                        }
+                                    ?>'>
         </button>
     </form>
 </div>
@@ -42,7 +48,7 @@
 </footer>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src='js/jquery-1.11.3.min.js'></script>
 <script src='js/bootstrap.min.js'></script>
 <script src='js/validacao.js'></script>
 </body>

@@ -14,14 +14,22 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4" id="estilo">
 					<div class="borda">
-						<form class="form-signin">
-							
-							<span class="id_campo">BOTA O NOME KAUE:</span>
-							<label class="sr-only" id="campo_senha">bota o nome lek</label>
-							<input class="form-control" placeholder="AQUI TAMBEM" required="">
-							
-							<button  type="button"	 class="log">
-								<img  id="botao" src="img/botaoCadastro.png">
+                        <?php
+                        if(isset($_REQUEST['editar'])){
+                            $op = 'editado';
+                        }else{
+                            $op = 'cria';
+                        }
+                        ?>
+                        <form class="form-signin" id="formgenerico" method="POST" action="b_control.php?op=<?php echo $op ."&entidade=".$_SESSION['gn'] ?>" enctype="multipart/form-data">
+							<?php
+							$gn = $_SESSION['gn'];
+							echo "<span class='id_campo'> $gn </span>";
+							echo "<label class='sr-only' id='campo_senha'>$gn</label>";
+							echo "<input class='form-control' placeholder='$gn' required='' name='$gn'>";
+							?>
+							<button  type="submit"	 class="log">
+								<img  id="botao" src="img/botaoCadastrar.png">
 							</button>
 						</form>
 					</div>
@@ -29,7 +37,7 @@
 			</div>
 		</div>
 	</div>	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>

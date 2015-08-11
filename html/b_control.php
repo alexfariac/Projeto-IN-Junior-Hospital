@@ -12,30 +12,51 @@
             loga($usuario, $senha);
         }
     }else {
-
         switch ($_REQUEST['op']) {
             case 'desloga':
                 desloga();
                 break;
-            case 'cria';
-                insert_paciente($nome=$_REQUEST['nome'],$_REQUEST['cpf']);
+            case 'cria':
+                switch ($_REQUEST['entidade']) {
+                    case 'quarto':
+                        insert_quarto($_REQUEST['quarto'], $_REQUEST['tipo_quarto']);
+                        break;
+                    case 'paciente':
+                        insert_paciente($_REQUEST['nome'], $_REQUEST['cpf']);
+                        break;
+                    case 'funcionario':
+                        insert_funcionario($_REQUEST['login'], $_REQUEST['senha'], $_REQUEST['tipo_funcionario'], $_REQUEST['nome'], $_REQUEST['cpf'], $_REQUEST['email']);
+                        break;
+                    case 'ponto':
+                        insert_ponto($_REQUEST['nome'], $_REQUEST['entrada'], $_REQUEST['saida']);
+                        break;
+                    case 'prontuario':
+                        insert_prontuario($_REQUEST['quarto'], $_REQUEST['medico'], $_REQUEST['paciente'], $_REQUEST['status_saude']);
+                        break;
+                    case 'tipo_funcionario':
+                    case 'tipo_quarto':
+                    case 'status_usuario':
+                    case 'status_quarto':
+                    case 'status_saude':
+                        $gn = $_REQUEST['entidade'];
+                        insert_generico($gn,$_REQUEST[$gn]);
+                        break;
+                }
                 exit;
-                break;
             case 'ponto':
                 echo "ponto:".$_SESSION['ponto'];
                 if ($_SESSION['ponto'] == 'novo') {
                     auto_insert_ponto($_SESSION['user']);
                 } else {
-                    auto_update_ponto($_SESSION['ponto']);
+                    auto_update_ponto();
                 }
                 break;
             case 'edit':
                 editar($_REQUEST['entidade'],$_REQUEST['id']);
                 exit;
-                break;
             case 'excl':
                 deletar($_REQUEST['entidade'],$_REQUEST['id']);
-                break;
+                exit;
 
         }
     }

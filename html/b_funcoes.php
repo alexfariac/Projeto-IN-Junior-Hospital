@@ -22,18 +22,20 @@
             $_SESSION['tipo'] = $dados['fk_tipo_funcionario'];
             $_SESSION['nome'] = $dados['nome'];
             $conn = conecta_bd();
-            $sql = "select id_ponto from ponto where fk_usuario='$res_id_usuario' and ISNULL(data_hora_saida)";
+            $sql = "select * from ponto where fk_usuario='$res_id_usuario' and ISNULL(data_hora_saida)";
             $query = $conn->query($sql);
+            //echo "<br>".$sql;
             //$qtd = $query->fetch_row();
             //echo $qtd;
             //<? =$qtd
             //echo "<script> alert('tst')</script>";
             if($query->fetch_row()>=1){
-                $dados = $query->fetch_array();
-                echo "print: ".$dados;
-                echo "print: ".print_r($dados);
-                echo "print: ".$dados['id_ponto'];
-                $_SESSION['ponto'] = $dados['id_ponto'];
+                //$dados2 = $query->fetch_array();
+                //echo "print: ".$dados2;
+                //echo "print: ".print_r($dados2);
+                //echo "print: ".$dados2['id_ponto'];
+                //$_SESSION['ponto'] = $dados2['id_ponto'];
+                echo "pulei";
             } else{
                 $_SESSION['ponto'] = 'novo';
             }
@@ -44,7 +46,7 @@
         mysqli_close($conn);
 	}
     function desloga(){
-        session_start();
+        //session_start();
         session_destroy();  //destruir a sessão
     }
     function valida_tipo($tipo){
@@ -56,58 +58,80 @@
     }
     //Create...
     function insert_paciente($nome,$cpf){
-        echo('Inserindo Paciente...');
+        //echo('Inserindo Paciente...');
         $conn = conecta_bd();
         $sql = "INSERT INTO paciente (nome,cpf) values (?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('ss',$nome,$cpf);
         $ok = $stmt->execute();
-        echo $ok;
+        
         if($ok){
             echo 'Dados inseridos com sucesso...';
         }
         else{
             echo "Nao foi possivel inserir os dados..."
-                ."<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+                ;
         }
         mysqli_close($conn);
     }
     function insert_prontuario($quarto,$medico, $paciente, $status_saude){
-        echo('Inserindo prontuario...');
+        //echo('Inserindo prontuario...');
         $conn = conecta_bd();
         $sql = "INSERT INTO prontuario (fk_quarto,fk_usuario, fk_paciente, fk_status_saude) values (?,?,?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('iiii',$quarto,$medico, $paciente, $status_saude);
         $ok = $stmt->execute();
-        echo $ok;
+        
         if($ok){
             echo 'Dados inseridos com sucesso...';
         }
         else{
             echo "Nao foi possivel inserir os dados..."
-                ."<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+                ;
         }
         mysqli_close($conn);
     }
     function insert_quarto($quarto,$tipo_quarto){
-        echo('Inserindo quarto...');
+        //echo('Inserindo quarto...');
         $conn = conecta_bd();
         $sql = "INSERT INTO quarto (quarto,fk_tipo_quarto) values (?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('si',$quarto,$tipo_quarto);
         $ok = $stmt->execute();
-        echo $ok;
+        
         if($ok){
             echo 'Dados inseridos com sucesso...';
         }
         else{
             echo "Nao foi possivel inserir os dados..."
-                ."<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+                ;
+        }
+        mysqli_close($conn);
+    }
+    function insert_ponto($fk_usuario,$data_hora_entrada,$data_hora_saida){
+        //echo('Inserindo quarto...');
+        $conn = conecta_bd();
+        if($data_hora_saida!=""){
+            $sql = "INSERT INTO ponto (fk_usuario,data_hora_entrada, data_hora_saida,horas_trabalhadas) values (?,?,?,TIMEDIFF(data_hora_saida,data_hora_entrada))";
+        }else{
+            $sql = "INSERT INTO ponto (fk_usuario,data_hora_entrada) values (?,?)";
+        }
+        $stmt = $conn->prepare($sql);
+        if($data_hora_saida!=""){
+            $stmt->bind_param('iss',$fk_usuario,$data_hora_entrada,$data_hora_saida);
+        $ok = $stmt->execute();
+
+        if($ok){
+            echo 'Dados inseridos com sucesso...';
+        }
+        else{
+            echo "Nao foi possivel inserir os dados..."
+            ;
         }
         mysqli_close($conn);
     }
     function auto_insert_ponto($fk_usuario){
-        echo('Inserindo Ponto...');
+        //echo('Inserindo Ponto...');
         $conn = conecta_bd();
         $sql = "INSERT INTO ponto(fk_usuario) values (?)";
         $stmt = $conn->prepare($sql);
@@ -118,20 +142,20 @@
         }
         else{
             echo "Nao foi possivel inserir os dados..."
-                ."<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+                ;
         }
         mysqli_close($conn);
     }
     function insert_funcionario($login,$senha,$fk_tipo_funcionario, $nome, $cpf,$email){
-        echo('Inserindo Funcionario e Usuario...');
+        //echo('Inserindo Funcionario e Usuario...');
         $conn = conecta_bd();
         $sql = "INSERT INTO usuario (login,senha) values (?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('ss', $login, $senha);
         $ok1 = $stmt->execute();
         $id_res = mysqli_insert_id($conn);//$stmt->insert_id;
-        echo 'Ultimo id:' . $id_res;
-        echo ' Tipo:' . var_dump($id_res);
+        //echo 'Ultimo id:' . $id_res;
+        //echo ' Tipo:' . var_dump($id_res);
         $sql = "INSERT INTO funcionario (fk_usuario,fk_tipo_funcionario, nome, cpf,email) values (?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('iisss', $id_res, $fk_tipo_funcionario, $nome, $cpf, $email);
@@ -140,16 +164,14 @@
         if ($ok1 && $ok2) {
             echo 'Dados inseridos com sucesso...';
         } elseif ($ok1 || $ok2) {
-            echo "Nao foi possivel inserir os dados...<br> Mas alguma parte dos dados entrou."
-                . "<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+            echo "Nao foi possivel inserir os dados...<br> Mas alguma parte dos dados entrou.";
         } else {
-            echo "Nao foi possivel inserir os dados..."
-                . "<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+            echo "Nao foi possivel inserir os dados...";
         }
         mysqli_close($conn);
     }//Endereco com problema :(
     function insert_generico($tabela,$data){
-        echo('Inserindo generico...');
+        //echo('Inserindo generico...');
         $conn = conecta_bd();
         $sql = "INSERT INTO $tabela ($tabela) values (?)";
         $stmt = $conn->prepare($sql);
@@ -161,93 +183,93 @@
         }
         else{
             echo "Nao foi possivel inserir os dados..."
-                ."<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+                ;
         }
         mysqli_close($conn);
     }
     /*
     function insert_tipo_quarto($tipo_quarto){
-        echo('Inserindo Tipo de Quarto...');
+        //echo('Inserindo Tipo de Quarto...');
         $conn = conecta_bd();
         $sql = "INSERT INTO tipo_quarto (tipo_quarto) values (?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('s',$tipo_quarto);
         $ok = $stmt->execute();
-        echo $ok;
+        
         if($ok){
             echo 'Dados inseridos com sucesso...';
         }
         else{
             echo "Nao foi possivel inserir os dados..."
-                ."<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+                ;
         }
         mysqli_close($conn);
     }
     function insert_tipo_funcionario($tipo_funcionario){
-        echo('Inserindo Tipo de Funcionário...');
+        //echo('Inserindo Tipo de Funcionário...');
         $conn = conecta_bd();
         $sql = "INSERT INTO tipo_funcionario(tipo_funcionario) values (?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('s',$tipo_funcionario);
         $ok = $stmt->execute();
-        echo $ok;
+        
         if($ok){
             echo 'Dados inseridos com sucesso...';
         }
         else{
             echo "Nao foi possivel inserir os dados..."
-                ."<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+                ;
         }
         mysqli_close($conn);
     }
     function insert_status_quarto($status_quarto){
-        echo('Inserindo Status Quarto...');
+        //echo('Inserindo Status Quarto...');
         $conn = conecta_bd();
         $sql = "INSERT INTO status_quarto (status_quarto) values (?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('s',$status_quarto);
         $ok = $stmt->execute();
-        echo $ok;
+        
         if($ok){
             echo 'Dados inseridos com sucesso...';
         }
         else{
             echo "Nao foi possivel inserir os dados..."
-                ."<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+                ;
         }
         mysqli_close($conn);
     }
     function insert_status_usuario($status_usuario){
-        echo('Inserindo Status de usuario...');
+        //echo('Inserindo Status de usuario...');
         $conn = conecta_bd();
         $sql = "INSERT INTO status_usuario(status_usuario) values (?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('s',$status_usuario);
         $ok = $stmt->execute();
-        echo $ok;
+        
         if($ok){
             echo 'Dados inseridos com sucesso...';
         }
         else{
             echo "Nao foi possivel inserir os dados..."
-                ."<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+                ;
         }
         mysqli_close($conn);
     }
     function insert_status_saude($status_saude){
-        echo('Inserindo Status de Saude...');
+        //echo('Inserindo Status de Saude...');
         $conn = conecta_bd();
         $sql = "INSERT INTO status_saude (status_saude) values (?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('s',$status_saude);
         $ok = $stmt->execute();
-        echo $ok;
+        
         if($ok){
             echo 'Dados inseridos com sucesso...';
         }
         else{
             echo "Nao foi possivel inserir os dados..."
-                ."<br><a href=\"home.php\">clique aqui para tentar novamente</a>";
+                ;
         }
         mysqli_close($conn);
     }
@@ -278,6 +300,7 @@
         $abre .= "<thead>";
 
         $query = $conn->query($sql);
+        //echo $sql;
         if ($query->num_rows > 0) {
             echo $abre;
             foreach ($fields as $field) {
@@ -285,11 +308,7 @@
             }
             echo "</thead><tbody>";
             while ($data = $query->fetch_array()) {
-                if($tabela == 'funcionario'){
-                    $id = $data['fk_usuario'];
-                }else{
-                    $id = $data['id_' . $tabela];
-                }
+                $id = $data['id_' . $tabela];
                 echo("<tr>");
                 foreach ($fields as $field) {
                     if ($field == 'editar') {
@@ -317,8 +336,10 @@
     function select_paciente(){
         $conn = conecta_bd();
         $sql ="SELECT * FROM paciente";
-        if($_SESSION['tipo']==2){
-            $sql .= "WHERE fk_usuario =".$_SESSION["user"];
+        if(isset($_SESSION['tipo'])) {
+            if ($_SESSION['tipo'] == 2) {
+                $sql .= "WHERE fk_usuario =" . $_SESSION["user"];
+            }
         }
         $fields = ['nome','cpf','editar','excluir'];
        /* $query = $conn->query($sql);
@@ -353,52 +374,61 @@
     }
     function select_prontuario(){
         $conn = conecta_bd();
-        $sql ="SELECT quarto, f.nome as medico,paciente.nome as paciente, status_saude FROM prontuario p,quarto, paciente,funcionario f,status_saude WHERE fk_quarto = id_quarto AND f.fk_usuario = p.fk_usuario AND fk_paciente = id_paciente AND fk_status_saude = id_status_saude";
-        $fields = ['quarto','medico','paciente','status_saude'];
+        $sql ="SELECT id_prontuario, quarto, f.nome as medico,paciente.nome as paciente, status_saude "
+                ."FROM prontuario p,quarto, paciente,funcionario f,status_saude "
+                ."WHERE fk_quarto = id_quarto AND f.fk_usuario = p.fk_usuario AND fk_paciente = id_paciente AND fk_status_saude = id_status_saude";
+        $fields = ['quarto','medico','paciente','status_saude','editar','excluir'];
         tabela('prontuario',$conn, $sql, $fields);
     }
     function select_quarto(){ //Para as tabelas Admin[status_*, tipo_*]
         $conn = conecta_bd();
-        $sql ="SELECT quarto,tipo_quarto tipo,status_quarto status FROM quarto, tipo_quarto, status_quarto WHERE fk_tipo_quarto = id_tipo_quarto AND fk_status_quarto = id_status_quarto";
-        $fields = ['quarto','tipo' ,'status'];
-        tabela('quart',$conn, $sql, $fields);
+        $sql ="SELECT id_quarto,quarto,tipo_quarto tipo,status_quarto status FROM quarto, tipo_quarto, status_quarto WHERE fk_tipo_quarto = id_tipo_quarto AND fk_status_quarto = id_status_quarto";
+        $fields = ['quarto','tipo' ,'status','editar','excluir'];
+        tabela('quarto',$conn, $sql, $fields);
     }
     function select_ponto(){ //Para as tabelas Admin[status_*, tipo_*]
         $conn = conecta_bd();
-        $sql ="SELECT * FROM ponto, funcionario";
+        $sql ="SELECT * FROM ponto, funcionario WHERE ponto.fk_usuario = funcionario.fk_usuario";
         $fields = ['nome','data_hora_entrada','data_hora_saida','horas_trabalhadas','editar','excluir'];
         tabela('ponto',$conn, $sql, $fields);
     }
     function select_funcionario(){ //Para as tabelas Admin[status_*, tipo_*]
         $conn = conecta_bd();
-        $sql ="select nome,login, tipo_funcionario as cargo,cpf,endereço,email,status_usuario as status from funcionario, usuario, status_usuario, tipo_funcionario"
+        $sql ="SELECT id_usuario, nome,login, tipo_funcionario cargo,cpf,email,status_usuario status FROM funcionario, usuario, status_usuario, tipo_funcionario "
             . "WHERE fk_usuario = id_usuario AND fk_status_usuario = id_status_usuario AND fk_tipo_funcionario = id_tipo_funcionario";
-        $fields = ['nome','login','cargo','cpf','endereço','email','status','editar','excluir'];
-        tabela('funcionario',$conn, $sql, $fields);
+        $fields = ['nome','login','cargo','cpf','email','status','editar','excluir'];
+        tabela('usuario',$conn, $sql, $fields);
     }
     function select_generico($tabela){ //Para as tabelas Admin[status_*, tipo_*]
         $conn = conecta_bd();
         $sql ="select * from $tabela";
-        $fields = ['id_'.$tabela, $tabela,'editar','excluir'];
+        $fields = [$tabela,'editar','excluir'];
         tabela($tabela,$conn, $sql, $fields);
     }
     //Update...
     function editar($tabela,$id){
-        $conn = conecta_bd();
-        if($tabela == 'funcionario'){
-            $sql = "SELECT * FROM $tabela WHERE fk_usuario = $id";
-        }else{
-            $sql = "SELECT * FROM $tabela WHERE id_$tabela = $id";
-        }
-        $query = $conn->query($sql);
-        $data = $query->fetch_array();
-        header("Location:form_paciente.php");
+        //$conn = conecta_bd();
+        //if($tabela == 'funcionario'){
+        //    $sql = "SELECT * FROM $tabela WHERE fk_usuario = $id";
+        //}else{
+        //    $sql = "SELECT * FROM $tabela WHERE id_$tabela = $id";
+        //}
+        //$query = $conn->query($sql);
+        //$data = $query->fetch_array();
+        header("Location:form_$tabela.php?editar=$id");
     }
-    function auto_update_ponto($id){
+    function auto_update_ponto(){
+        $conn = conecta_bd();
+        $sql = "select id_ponto from ponto where fk_usuario='1' and ISNULL(data_hora_saida)";
+        $query = $conn->query($sql);
+        $dados = $query->fetch_array();
+        $id_ponto = $dados['id_ponto'];
+        echo $id_ponto;
+
         $conn = conecta_bd();
         $sql =  "UPDATE ponto ";
         $sql .= "SET data_hora_saida = NOW(),horas_trabalhadas = TIMEDIFF(NOW(),data_hora_entrada) ";
-        $sql .= "WHERE id_ponto = $id";
+        $sql .= "WHERE id_ponto = $id_ponto";
         if($conn->query($sql)){
             echo "Feito!";
             $_SESSION['ponto'] = 'novo';

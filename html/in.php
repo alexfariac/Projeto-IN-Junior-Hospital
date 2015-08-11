@@ -1,6 +1,7 @@
 <?php
     if($_REQUEST['op']=='criar'){
         if(isset($_REQUEST['gn'])){
+            $_SESSION['gn'] = $_REQUEST['gn'];
             include_once "form_generico.php";
         }else{
             include_once "form_".$_REQUEST['entidade'].".php";

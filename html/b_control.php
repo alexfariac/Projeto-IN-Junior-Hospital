@@ -52,7 +52,35 @@
                 }
                 break;
             case 'edit':
-                editar($_REQUEST['entidade'],$_REQUEST['id']);
+                //editar($_REQUEST['entidade'],$_REQUEST['id']);
+                header("Location:form_".$_REQUEST['entidade'] .".php?editar=".$_REQUEST['id']);
+                exit;
+            case 'editado':
+                switch ($_REQUEST['entidade']) {
+                    case 'quarto':
+                        update_quarto($_REQUEST['id'],$_REQUEST['quarto'], $_REQUEST['tipo_quarto']);
+                        break;
+                    case 'paciente':
+                        update_paciente($_REQUEST['id'],$_REQUEST['nome'], $_REQUEST['cpf']);
+                        break;
+                    case 'funcionario':
+                        update_funcionario($_REQUEST['id'],$_REQUEST['login'], $_REQUEST['senha'], $_REQUEST['tipo_funcionario'], $_REQUEST['nome'], $_REQUEST['cpf'], $_REQUEST['email']);
+                        break;
+                    case 'ponto':
+                        update_ponto($_REQUEST['id'],$_REQUEST['nome'], $_REQUEST['entrada'], $_REQUEST['saida']);
+                        break;
+                    case 'prontuario':
+                        update_prontuario($_REQUEST['id'],$_REQUEST['quarto'], $_REQUEST['medico'], $_REQUEST['paciente'], $_REQUEST['status_saude']);
+                        break;
+                    case 'tipo_funcionario':
+                    case 'tipo_quarto':
+                    case 'status_usuario':
+                    case 'status_quarto':
+                    case 'status_saude':
+                        $gn = $_REQUEST['entidade'];
+                        update_generico($_REQUEST['id'],$gn,$_REQUEST[$gn]);
+                        break;
+                }
                 exit;
             case 'excl':
                 deletar($_REQUEST['entidade'],$_REQUEST['id']);
@@ -60,4 +88,4 @@
 
         }
     }
-    header("Location:home.php");
+    //header("Location:home.php");

@@ -117,8 +117,11 @@
             $sql = "INSERT INTO ponto (fk_usuario,data_hora_entrada) values (?,?)";
         }
         $stmt = $conn->prepare($sql);
-        if($data_hora_saida!=""){
-            $stmt->bind_param('iss',$fk_usuario,$data_hora_entrada,$data_hora_saida);
+        if($data_hora_saida!="") {
+            $stmt->bind_param('iss', $fk_usuario, $data_hora_entrada, $data_hora_saida);
+        }else{
+            $stmt->bind_param('is', $fk_usuario, $data_hora_entrada);
+        }
         $ok = $stmt->execute();
 
         if($ok){
@@ -406,7 +409,7 @@
         tabela($tabela,$conn, $sql, $fields);
     }
     //Update...
-    function editar($tabela,$id){
+    /*function editar($tabela,$id){
         //$conn = conecta_bd();
         //if($tabela == 'funcionario'){
         //    $sql = "SELECT * FROM $tabela WHERE fk_usuario = $id";
@@ -415,8 +418,23 @@
         //}
         //$query = $conn->query($sql);
         //$data = $query->fetch_array();
-        header("Location:form_$tabela.php?editar=$id");
+        //header("Location:form_$tabela.php?editar=$id");
     }
+    function update($tabela,$id,$array1,$array2){
+        $conn = conecta_bd();
+        $sql =  "UPDATE $tabela SET ";
+        for($i=0;$i<count($array1);$i++){
+            $sql .= $array1[$i]." = ". $array2[$i];
+        }
+        if($tabela=='funcionario'){
+            $sql .= "WHERE fk_usuario= $id";
+        }else{
+            $sql .= "WHERE id_$tabela = $id";
+        }
+        $query = $conn->query($sql);
+        $data = $query->fetch_array();
+    }
+    */
     function auto_update_ponto(){
         $conn = conecta_bd();
         $sql = "select id_ponto from ponto where fk_usuario='1' and ISNULL(data_hora_saida)";
@@ -435,20 +453,125 @@
         }else{
             echo "Deu ruim!";}
     }
-    function update($tabela,$id,$array1,$array2){
-        $conn = conecta_bd();
-        $sql =  "UPDATE $tabela SET ";
-        for($i=0;$i<count($array1);$i++){
-            $sql .= $array1[$i]." = ". $array2[$i];
-        }
-        if($tabela=='funcionario'){
-            $sql .= "WHERE fk_usuario= $id";
-        }else{
-            $sql .= "WHERE id_$tabela = $id";
-        }
-        $query = $conn->query($sql);
-        $data = $query->fetch_array();
 
+    function update_paciente($id,$nome,$cpf){
+    //echo('Atualizando Paciente...');
+    $conn = conecta_bd();
+    $sql = "INSERT INTO paciente (nome,cpf) values (?,?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('ss',$nome,$cpf);
+    $ok = $stmt->execute();
+
+    if($ok){
+        echo 'Dados atualizados com sucesso...';
+    }
+    else{
+        echo "Nao foi possivel atualizar os dados..."
+        ;
+    }
+    mysqli_close($conn);
+    }
+    function update_prontuario($id,$quarto,$medico, $paciente, $status_saude){
+        //echo('Atualizando prontuario...');
+        $conn = conecta_bd();
+        $sql = "INSERT INTO prontuario (fk_quarto,fk_usuario, fk_paciente, fk_status_saude) values (?,?,?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('iiii',$quarto,$medico, $paciente, $status_saude);
+        $ok = $stmt->execute();
+
+        if($ok){
+            echo 'Dados atualizados com sucesso...';
+        }
+        else{
+            echo "Nao foi possivel atualizar os dados..."
+            ;
+        }
+        mysqli_close($conn);
+    }
+    function update_quarto($id,$quarto,$tipo_quarto){
+        //echo('Atualizando quarto...');
+        $conn = conecta_bd();
+        $sql = "INSERT INTO quarto (quarto,fk_tipo_quarto) values (?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('si',$quarto,$tipo_quarto);
+        $ok = $stmt->execute();
+
+        if($ok){
+            echo 'Dados atualizados com sucesso...';
+        }
+        else{
+            echo "Nao foi possivel atualizar os dados..."
+            ;
+        }
+        mysqli_close($conn);
+    }
+    function update_ponto($id,$fk_usuario,$data_hora_entrada,$data_hora_saida){
+        //echo('Atualizando quarto...');
+        $conn = conecta_bd();
+        $sql =  "UPDATE ponto ";
+        if($data_hora_saida!=""){
+            $sql .= "SET fk_usuario = ?,data_hora_entrada= ?,data_hora_saida = ?,horas_trabalhadas = TIMEDIFF(data_hora_saida,data_hora_entrada) ";
+        }else{
+            $sql .= "SET fk_usuario = ?,data_hora_entrada= ? ";
+        }
+        $sql .= "WHERE id_ponto = $id";
+        $stmt = $conn->prepare($sql);
+        if($data_hora_saida!="") {
+            $stmt->bind_param('iss', $fk_usuario, $data_hora_entrada, $data_hora_saida);
+        }else{
+            $stmt->bind_param('is', $fk_usuario, $data_hora_entrada);
+        }
+        $ok = $stmt->execute();
+
+        if($ok){
+            echo 'Dados atualizados com sucesso...';
+        }
+        else{
+            echo "Nao foi possivel atualizar os dados..."
+            ;
+        }
+        mysqli_close($conn);
+    }
+    function update_funcionario($id,$login,$senha,$fk_tipo_funcionario, $nome, $cpf,$email){
+        //echo('Atualizando Funcionario e Usuario...');
+        $conn = conecta_bd();
+        $sql = "INSERT INTO usuario (login,senha) values (?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('ss', $login, $senha);
+        $ok1 = $stmt->execute();
+        $id_res = mysqli_insert_id($conn);//$stmt->insert_id;
+        //echo 'Ultimo id:' . $id_res;
+        //echo ' Tipo:' . var_dump($id_res);
+        $sql = "INSERT INTO funcionario (fk_usuario,fk_tipo_funcionario, nome, cpf,email) values (?,?,?,?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('iisss', $id_res, $fk_tipo_funcionario, $nome, $cpf, $email);
+        $ok2 = $stmt->execute();
+
+        if ($ok1 && $ok2) {
+            echo 'Dados atualizados com sucesso...';
+        } elseif ($ok1 || $ok2) {
+            echo "Nao foi possivel atualizar os dados...<br> Mas alguma parte dos dados entrou.";
+        } else {
+            echo "Nao foi possivel atualizar os dados...";
+        }
+        mysqli_close($conn);
+    }//Endereco com problema :(
+    function update_generico($id,$tabela,$data){
+        //echo('Atualizando generico...');
+        $conn = conecta_bd();
+        $sql = "INSERT INTO $tabela ($tabela) values (?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('s',$data);
+        $ok = $stmt->execute();
+
+        if($ok){
+            echo 'Dados atualizados com sucesso...';
+        }
+        else{
+            echo "Nao foi possivel atualizar os dados..."
+            ;
+        }
+        mysqli_close($conn);
     }
     //Delete...
     function deletar($tabela,$id){
